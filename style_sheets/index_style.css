@@ -19,22 +19,30 @@ h2{
 }
 
 ul{
+    /*border: 1px black solid;*/
     list-style-type: none;
-    padding: 0;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding: 4px;
+    margin: auto;
     overflow: hidden;
     background-color: #cce0ff;
 }
 
-li{
-    float: left;
+.spacing{
     margin-left: 10px
 }
 
+li{
+        float: left;
+}
 img{
     text-align: center;
-    padding-left: 40%;
-    padding-right: 40%;
+/*    padding-left: 40%;
+    padding-right: 40%;*/
     max-height: 400px;
+}
+
+.intro_pics{
+	display: table;  
+	margin: auto auto;
+
 }
