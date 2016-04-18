@@ -11,7 +11,7 @@
             
             
             td{
-                height: 320px;
+                height: 325px;
                 width: 300px;
                 text-align: center;
 
@@ -39,3 +39,8 @@
             table a:visited{
                     color: black;
             }
+            
+            .price_text{
+                font-size: 15px;
+            }
+            
