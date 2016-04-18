@@ -19,7 +19,15 @@ function validateEmail(){
     //checking the product model
     productModel = productModel.toUpperCase();
     if(productModel !== "AP-QUE-II-CUP" 
-            && productModel !== "another model")
+            && productModel !== "ROYAL-OAK-OFFSHORE"
+            && productModel !== "IWATCH"
+            && productModel !== "FERERRI"
+            && productModel !== "WBC"
+            && productModel !== "SPIRIT-OF-BIG-BANG"
+            && productModel !== "S2-SMART-WATCH"
+            && productModel !== "MOTO-WATCH"
+            && productModel !== "SIENNA"
+            && productModel !== "MR-BRAINWASH")
     {
         alert("Product Model Does Not Exist! (Enter the exact product model)");
         return (false);
