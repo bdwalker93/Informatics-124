@@ -40,6 +40,10 @@
                     color: black;
             }
             
+            table a:link{
+                    color: black;
+            }
+            
             .price_text{
                 font-size: 15px;
             }
