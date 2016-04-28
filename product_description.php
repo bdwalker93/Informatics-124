@@ -86,8 +86,8 @@
         </div>
          
         <!--Checkout button linking to checkout page-->
-        <form class="checkout_button" action="http://google.com">
-            <input type="submit" value="Go to Google">
+        <form class="checkout_button" action="checkout.php">
+            <input type="submit" value="Checkout">
         </form>
         
          <!--        This is the footer-->
