@@ -2,13 +2,18 @@
     //requiring our db variable
     require_once 'pdo.php';
     
-    //we need to do a get/post rereival for the product type so we can query the 
-    //      db
+    //get the product id number to determine which information to load
+    $productIdNumber = $_GET['productID'];
     
     //queries the product_description table for the entire row filled with all of
-    //      the product information
-    $query = $pdo->query("Select * from product_descriptions");
-    $productInfo = $query->fetch(PDO::FETCH_ASSOC);    
+    //      the product information using a prepared statement
+    $sql = 'SELECT *
+            FROM product_descriptions
+            WHERE id = :productIdNumber';
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':productIdNumber', $productIdNumber);
+    $stmt->execute();
+    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <html>
@@ -16,7 +21,7 @@
         <title>
         <?php            
             //outputting the title here
-            echo $productInfo['product_title'];
+            echo $productInfo['title'];
         ?>
         </title>
 
@@ -48,22 +53,24 @@
         <h1>
             <?php   
                 //pulls the product_brand from the db
-                echo $productInfo['product_brand'];
+                echo $productInfo['brand'];
             ?>
         </h1>
         <h2>
             <?php 
                 //pulls the product_name from the db
-                echo $productInfo['product_name']; 
+                echo $productInfo['name']; 
             ?>
         </h2>
         
-        <img class="product_image" src="images/product_images/samsung.jpg" alt="This can be a background watch picture">
-
+        <?php      
+                echo "<img class='product_image' src='".$productInfo['image_path']."' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
+        ?>
+        
         <div class="description_text">
             <?php      
                 //pulls the product_description from the db 
-                echo $productInfo['product_description'];
+                echo $productInfo['description'];
             ?>
         </div>
 
@@ -71,13 +78,17 @@
             
             <?php 
                 //pulls the product_price from the db
-                echo "Price: $".$productInfo['product_price']; 
+                echo "Price: $".$productInfo['price']; 
             
-                echo "<br>Product Number: ".$productInfo['product_id']; 
+                echo "<br>Product Number: ".$productInfo['id']; 
 
             ?>
         </div>
-               
+         
+        <!--Checkout button linking to checkout page-->
+        <form class="checkout_button" action="http://google.com">
+            <input type="submit" value="Go to Google">
+        </form>
         
          <!--        This is the footer-->
         <footer>
