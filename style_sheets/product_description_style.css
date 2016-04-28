@@ -49,12 +49,18 @@
 
             }
             
-            .checkout_button{
-/*                margin-left: auto;
-                margin-right: auto;*/
+            .checkout_button_form{
+                padding: 40px 5px;
                 text-align: center;
-                border: 1px solid black;
+                /*border: 1px solid black;*/
 
+            }
+            
+            .checkout_button{
+                width: 300px;
+                height: 75px;
+                background-color: #3385ff;
+                font-size: 25px;
             }
             
             td{
