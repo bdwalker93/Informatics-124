@@ -16,8 +16,8 @@
     $db_user_name = "root";
     $db_password = "";
     //connects to the db
-    $pdo = new PDO("mysql:host=$db_server_name;dbname=$db_name", $db_user_name, $db_password);
+    $conn = new PDO("mysql:host=$db_server_name;dbname=$db_name", $db_user_name, $db_password);
         
     //sets the error mode attribute to throw exceptions
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
