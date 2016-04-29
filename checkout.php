@@ -69,12 +69,94 @@
                         <input type="text" name="first_name" required>
                     </td>
                 </tr>
+                
+                
                 <tr class="checkout_table_row">
                     <td class="checkout_table_col">
                         Last name 
                     </td>
                     <td class="checkout_table_col">
                         <input type="text" name="last_name" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Phone Number
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="phone_number" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Street
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="street" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        City
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="city" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        State 
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="state" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Zip Code
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="zip_code" required>
+                    </td>
+                </tr>
+                                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Shipping Method
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="radio" name="shipping_method" required>
+                        <input type="radio" name="shipping_method" required>
+                    </td>
+                </tr>
+                
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Credit Card
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="zip_code" required>
+                    </td>
+                </tr>
+                
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Notes
+                    </td>
+                    <td class="checkout_table_col">
+                        <textarea></textarea>
                     </td>
                 </tr>
             </table>

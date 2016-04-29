@@ -28,50 +28,10 @@
             }
             
             .checkout_table_col{
-                border: 1px solid black;
+                /*border: 1px solid black;*/
                 width: 300px;
             }
             .right_container{
+                border: 1px solid black;
                 float: right; 
-                border: 1px solid black;
             }
-            
-/*            .order_product_details{
-                text-align:center; 
-            }
-                       
-            .order_contact_details{
-                text-align:center; 
-            }
-            
-            .order_address_details{
-                text-align:center; 
-
-            }
-            
-           .order_address_details td ul{
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                padding-left: 16px;
-            }
-            
-            .order_address_details td ul li{
-                    float: left;
-            }
-            
-            .credit_card_details{
-                text-align: center; 
-                border: 1px solid black;
-
-            }
-            
-            .submit_cell{
-                border: 1px solid black;
-                text-align: center; 
-            }
-            
-            .order_summary_table{
-                border: 1px solid black;
-
-            }*/
