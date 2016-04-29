@@ -54,114 +54,192 @@
         <div class="left_container" >
             
             <!--This is for product details-->
-           Maybe a product image here
-           <br>Maybe a watch size here if aplicable
-            <br>maybe a quantity here
-             <br> <br>
+            <div class="product_information_container">
+                <h2>Product Information</h2>
+                <table class="product_table">
+                     <tr class="product_table_row" >
+                        <td class="image_col" colspan="2">
+                            <?php      
+                                    echo "<img class='product_image' src='images/product_images/rolex1.jpg' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
+                            ?>                        
+                        </td>
+
+                    </tr>
+                    
+                    <tr class="product_table_row">
+                        <td class="product_table_col">
+                            Product Brand 
+                        </td>
+                        <td class="product_table_col">
+                            <label>Rolex</label>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr class="product_table_row">
+                        <td class="product_table_col">
+                            Product name 
+                        </td>
+                        <td class="product_table_col">
+                            <label>Submariner</label>
+                        </td>
+                    </tr>
+                    
+                    <tr class="product_table_row">
+                        <td class="product_table_col">
+                            Product ID 
+                        </td>
+                        <td class="product_table_col">
+                            <label>#1234</label>
+                        </td>
+                    </tr>
+                    
+                    <tr class="product_table_row">
+                        <td class="product_table_col">
+                            Size
+                        </td>
+                        <td class="product_table_col">
+                            <input type="text" name="size" required>
+                        </td>
+                    </tr>
+                                        
+                    
+                    <tr class="product_table_row">
+                        <td class="product_table_col">
+                            Quantity
+                        </td>
+                        <td class="product_table_col">
+                            <input type="text" name="quantity" required>
+                        </td>
+                    </tr>                           
+                </table>
+            </div>
              
-            <!--This is for personal details-->               
-            <table class="checkout_table">
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        First name 
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="first_name" required>
-                    </td>
-                </tr>
-                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Last name 
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="last_name" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Phone Number
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="phone_number" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Street
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="street" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        City
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="city" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        State 
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="state" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Zip Code
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="zip_code" required>
-                    </td>
-                </tr>
-                                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Shipping Method
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="radio" name="shipping_method" required>
-                        <input type="radio" name="shipping_method" required>
-                    </td>
-                </tr>
-                
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Credit Card
-                    </td>
-                    <td class="checkout_table_col">
-                        <input type="text" name="zip_code" required>
-                    </td>
-                </tr>
-                
-                <tr class="checkout_table_row">
-                    <td class="checkout_table_col">
-                        Notes
-                    </td>
-                    <td class="checkout_table_col">
-                        <textarea></textarea>
-                    </td>
-                </tr>
-            </table>
+            <!--This is for personal details-->    
+            <div class="personal_information_container">
+                <h2>Personal Information</h2>
+                <table class="personal_table">
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            First name 
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="first_name" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Last name 
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="last_name" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Phone Number
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="phone_number" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Street
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="street" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            City
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="city" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            State 
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="state" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Zip Code
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="zip_code" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Shipping Method
+                        </td>
+                        <td class="shipping_col">
+                            <div style="float: top">
+                                <input type="radio" name="Shipping Info" value="Overnight">Overnight ($20)<br>
+                            </div>
+                            <div style="float: top">
+                                <input type="radio" name="Shipping Info" value="2-Day Expedited">2-Day Expedited ($10)<br>
+                            </div>
+                            <div style="float: top">
+                                <input type="radio" name="Shipping Info" value="6-Day Ground" checked>6-Day Ground (Free)<br>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Credit Card Number
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="credit_card_number" required>
+                        </td>
+                    </tr>
+
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Credit Card Expiration
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="credit_card_expiration" required>
+                        </td>
+                    </tr>
+
+
+                    <tr class="personal_table_row">
+                        <td class="notes_column">
+                            Notes
+                        </td>
+                        <td class="notes_column">
+                            <textarea name="Notes" class="notes" form="purchase_form"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
          
+         <!--This is the right containter-->
         <div class="right_container" >  
             <!--Order summary box-->
             <table class="order_summary_table">
@@ -241,12 +319,19 @@
                   </td>
                 </tr>
             </table>
-        </div>      			
+            
+         <!--submit button-->
+         <div style>
+             <input type="submit">
+         </div>
+                    
+        </div>  
+        
         
         
          <!--        This is the footer-->
         <footer>
-            <ul style="position: fixed; bottom: 0; width: 100%">
+            <ul>
             <li><Div style="font-size: 20px;">University of California, Irvine</div></li>
             <li><Div style="font-size: 20px;">Informatics 124/ CS 137</div></li>
             <li style="float:right;">Spring 2016</li>

@@ -9,28 +9,97 @@
             }*/
             
             h1{
+                /*border: 1px solid black;*/
+                margin-top: 0px;
+                margin-bottom: 0px;
                 text-align: center;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 45px;
+                font-size: 52px;
             }
             
+            h2{
+                text-align: center;
+                    display: block;
+                    font-size: 30px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    margin-left: 0;
+                    margin-right: 0;
+                    font-weight: bold;
+            }
             .left_container{
+                /*border: 1px solid black;*/
                 float: left; 
-                border: 1px solid black;
                 width: 500px;
-                height: 500px;
+                height: 1000px;
+                margin-left: 200px;
             }
-            
-            .checkout_table_row{
-                border: 1px solid black;
+            .product_information_container{
+                /*border: 1px solid black;*/
 
             }
             
-            .checkout_table_col{
+            .product_table{
+                
+            }
+            
+            .product_image{
+                max-height: 200px;
+            }
+            
+            .image_col{
+                padding-left: 25%;
+            }
+            .product_table_col{
+                 /*border: 1px solid black;*/
+                width: 300px;
+                font-size: 20px;
+                text-align: center;
+
+            }
+            
+            .product_table_row{
+            }
+            
+            
+            .personal_information_container{
+                /*border: 1px solid black;*/
+
+            }
+            
+            .personal_table{
+                /*border: 1px solid black;*/
+            }
+            .personal_table_row{
+            }
+            
+            .personal_table_col{
                 /*border: 1px solid black;*/
                 width: 300px;
+                font-size: 20px;
+                padding: 3px;
+                text-align: center;
+
             }
+            
+            .shipping_col{
+                width: 300px;
+                font-size: 20px;
+                padding: 3px;
+                padding-left: 15px;
+            }
+            .notes_column{
+                /*border: 1px solid black;*/
+                height: 120px;
+                padding: 3px;
+
+            }
+            .notes{
+                height: 97%; 
+                width: 97%;
+            }
+            
             .right_container{
                 border: 1px solid black;
                 float: right; 
