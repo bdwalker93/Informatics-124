@@ -334,16 +334,6 @@
 
 
                    <tr class="order_summary_row">
-                     <td class="order_summary_col">
-                       Total:
-                     </td>
-                     <td class="order_summary_col">
-                       $8.06
-                     </td>
-                   </tr>
-
-
-                   <tr class="order_summary_row">
                      <td colspan="2" class="cell-separator"><hr class="a-spacing-mini a-divider-normal"></td>
                    </tr>
 
