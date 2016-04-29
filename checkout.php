@@ -17,43 +17,6 @@
     $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     
     
-    //validation start
-//    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    if (empty($_POST["name"])) {
-//        $nameErr = "Missing";
-//    }
-//    else {
-//        $name = $_POST["name"];
-//    }
-//
-//    if (empty($_POST["address"])) {
-//        $addrErr = "Missing";
-//    }
-//    else {
-//        $address = $_POST["address"];
-//    }
-//
-//    if (empty($_POST["email"]))  {
-//        $emailErr = "Missing";
-//    }
-//    else {
-//        $email = $_POST["email"];
-//    }
-//
-//    if (!isset($_POST["howMany"])) {
-//        $howManyErr = "You must select 1 option";
-//    }
-//    else {
-//        $howMany = $_POST["howMany"];
-//    }
-//
-//    if (empty($_POST["favFruit"])) {
-//        $favFruitErr = "You must select 1 or more";
-//    }
-//    else {
-//        $favFruit = $_POST["favFruit"];
-//    }
-//}
 ?>
 
 <html>
@@ -89,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="get">
+         <form action="confirmation.php" onsubmit="order_validation" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
