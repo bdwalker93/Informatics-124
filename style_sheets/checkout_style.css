@@ -1,12 +1,13 @@
           
             h1{
                 /*border: 1px solid black;*/
-                margin-top: 0px;
-                margin-bottom: 0px;
+                margin-top: 10px;
+                margin-bottom: 10px;
                 text-align: center;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 52px;
+                font-size: 60px;
+                /*text-decoration: underline;*/
             }
             
             h2{
@@ -30,7 +31,7 @@
             }
             .product_information_container{
                 /*border: 1px solid black;*/
-
+                /*float: left;*/
             }
             
             .product_table{
@@ -58,7 +59,7 @@
             
             .personal_information_container{
                 /*border: 1px solid black;*/
-
+                /*float: right;*/
             }
             
             .personal_table{
@@ -102,7 +103,7 @@
                 float: right; 
                 margin-right: 450px;
                 margin-top: 50px;
-                height: 420px;
+                height: 390px;
                 width: 350px;
                 background-color: #f2f2f2;
             }
