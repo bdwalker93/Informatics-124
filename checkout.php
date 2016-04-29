@@ -164,7 +164,15 @@
                         </td>
                     </tr>
 
-
+                    <tr class="personal_table_row">
+                        <td class="personal_table_col">
+                            Zip Code
+                        </td>
+                        <td class="personal_table_col">
+                            <input type="text" name="zip_code" required>
+                        </td>
+                    </tr>
+                    
                     <tr class="personal_table_row">
                         <td class="personal_table_col">
                             City
@@ -181,16 +189,6 @@
                         </td>
                         <td class="personal_table_col">
                             <input type="text" name="state" required>
-                        </td>
-                    </tr>
-
-
-                    <tr class="personal_table_row">
-                        <td class="personal_table_col">
-                            Zip Code
-                        </td>
-                        <td class="personal_table_col">
-                            <input type="text" name="zip_code" required>
                         </td>
                     </tr>
 
