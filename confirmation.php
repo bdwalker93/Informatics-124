@@ -16,43 +16,24 @@
 //    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <?php 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
+    require_once 'pdo.php';
+    
+    $orderID = $_GET['orderID'];
+    $sql = "SELECT *
+            FROM order_information
+            WHERE order_id = :orderID"; 
+    $stmt = $conn -> prepare($sql);
+    $stmt->bindParam(':orderID', $orderID);
+    $stmt->execute();
+    $customerInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    /*foreach($conn->query($sql) as $row) {
+        print $customerInfo['order_id'] ."&nbsp";
+        print $customerInfo['first_name'] . "&nbsp";
+        print $customerInfo['product_id'] . "&nbsp";
+        print $customerInfo['shipping_speed'] . "</br>";
+    }*/
+    
 
-try { 
-    $conn = new PDO("mysql:host=$servername;dbname=myTESTDB", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connectd Successsfully <br>";
-    //$sql= "CREATE DATABASE myTESTDB";
-    //$conn->exec($sql);
-    //echo "Databse created succesfully<br>";
-    /*$sql = "CREATE TABLE Customer (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    firstname VARCHAR(30) NOT NULL,
-    order_product VARCHAR(30) NOT NULL,
-    shipping_speed VARCHAR(50),
-    reg_date TIMESTAMP
-    )";
-    $conn->exec($sql);
-    echo "table created yay my coustomer tb"; 
-
-    $sql = "INSERT INTO Customer(firstname, order_product, shipping_speed)
-        VALUES('Jerry','apple watch','two day shipping')";
-    $conn->exec($sql);
-    echo "New record added";
-*/
-    $sql = "SELECT id, firstname, order_product, shipping_speed FROM Customer";
-    foreach($conn->query($sql) as $row) {
-        print $row['id'] ."&nbsp";
-        print $row['firstname'] . "&nbsp";
-        print $row['order_product'] . "&nbsp";
-        print $row['shipping_speed'] . "</br>";
-    }
-} catch (PDOException $e) {
-    echo "Connection Fail: " . $e->getMessage();
-
-}
 ?>
 <html>
     <head>
@@ -90,7 +71,7 @@ try {
         <h2>
             <?php 
                 
-                echo "Hello " . $row['firstname'] . ",";
+                echo "Hello " . $customerInfo['first_name'] . ",";
             ?>
         </h2>
         <div>
@@ -109,17 +90,18 @@ try {
             <tr>
                 <td>
                     <?php
-                        echo"The order was sent to :" . "<div style='color:red;'>". $row['firstname'] ."</div>". "<br>";
+                        echo"The order was sent to :" . "<div style='color:red;'>". $customerInfo['first_name'] ."</div>". "<br>";
                         //print"\r\n";
-                        echo"Order Number: #" . $row['id'];
-                    ?>
+                        echo"Order Number: #" . $customerInfo['order_id'];
+                        echo"The order was sent to :" . $customerInfo['street'].$customerInfo['city'] . $customerInfo['state']. $customerInfo['zip_code']. "<br>";                    ?>
                 </td>
                 <td>
                     <?php
-                        echo"Expected delivery date on:" . "<br>";
-                        echo "date etc" . "<br>";
-                        echo "Shipping Speed: " . "<br>";
+                        //echo"Expected delivery date on:" . "<br>";
+                        //echo "date etc" . "<br>";
+                        echo "Shipping Speed: " . $customerInfo['shipping_type']. "<br>";
                         echo "speed of shpping";
+                        
                         
                         
                     ?>
@@ -136,7 +118,7 @@ try {
                     <p>picture of the product that was ordered</p>
                 </td>
                 <td>
-                    <p>description</p>
+                    <p>description  load</p>
                 </td>
                 <td>
                     <p>price</p>
