@@ -87,6 +87,9 @@
          
         <!--Checkout button linking to checkout page-->
         <form class="checkout_button_form" action="checkout.php">
+            <?php
+                echo "<input type='hidden' name='productID' value='".$productIdNumber."'>";
+            ?>
             <input class="checkout_button" type="submit" value="Buy It Now!">
         </form>
         
