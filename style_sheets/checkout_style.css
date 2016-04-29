@@ -1,13 +1,4 @@
-            /*THESE WILL ALL NEEED TO BE MOVED TO THE CHECKOUT PAGE*/
-/*            table{
-                border: 1px solid black;
-                margin-left: auto;
-                margin-right: auto;    
-                margin-top: 40px;
-                border-spacing: 15px; 
-                background-color: #d6d7dc;
-            }*/
-            
+          
             h1{
                 /*border: 1px solid black;*/
                 margin-top: 0px;
@@ -28,12 +19,14 @@
                     margin-right: 0;
                     font-weight: bold;
             }
+            
+            /*This is all of the product/personal information*/
             .left_container{
                 /*border: 1px solid black;*/
                 float: left; 
                 width: 500px;
                 height: 1000px;
-                margin-left: 200px;
+                margin-left: 300px;
             }
             .product_information_container{
                 /*border: 1px solid black;*/
@@ -49,7 +42,7 @@
             }
             
             .image_col{
-                padding-left: 25%;
+                padding-left: 28%;
             }
             .product_table_col{
                  /*border: 1px solid black;*/
@@ -93,6 +86,8 @@
                 /*border: 1px solid black;*/
                 height: 120px;
                 padding: 3px;
+                font-size: 20px;
+                text-align: center;
 
             }
             .notes{
@@ -100,7 +95,49 @@
                 width: 97%;
             }
             
+            
+            /*This is all of the order summary css*/
             .right_container{
-                border: 1px solid black;
+                border: 3px solid black;
                 float: right; 
+                margin-right: 450px;
+                margin-top: 50px;
+                height: 420px;
+                width: 350px;
+                background-color: #f2f2f2;
+            }
+            
+            h3{
+                font-size: 30px;
+                text-align: center;
+            }
+            .order_summary_table{
+                /*border: 1px solid black;*/
+            }
+            .order_summary_row{
+                
+            }
+            
+            .order_summary_col{
+                /*border: 1px solid black;*/
+                font-size: 20px;
+                padding-left: 5px;
+            }
+            
+            .order_summary_col_name{
+                /*border: 1px solid black;*/
+                font-size: 20px;
+                padding-right: 90px;
+                padding-left: 10px;
+
+            }
+            .submit_button_container{
+                text-align: center;
+                padding-top: 15px;
+            }
+            .order_button{
+                height: 55px;
+                width: 98%;
+                background-color: #1a75ff;
+                font-size: 20px;
             }

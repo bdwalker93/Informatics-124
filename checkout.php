@@ -55,7 +55,10 @@
             
             <!--This is for product details-->
             <div class="product_information_container">
+                <hr>
                 <h2>Product Information</h2>
+                <hr>
+
                 <table class="product_table">
                      <tr class="product_table_row" >
                         <td class="image_col" colspan="2">
@@ -117,7 +120,10 @@
              
             <!--This is for personal details-->    
             <div class="personal_information_container">
+                <hr>
                 <h2>Personal Information</h2>
+                <hr>
+
                 <table class="personal_table">
                     <tr class="personal_table_row">
                         <td class="personal_table_col">
@@ -242,87 +248,81 @@
          <!--This is the right containter-->
         <div class="right_container" >  
             <!--Order summary box-->
+            <h3>Order Summary</h3>
+            <hr>
             <table class="order_summary_table">
-                <tr class="">
-                    <td class="">
+                <tr class="order_summary_row">
+                    <td class="order_summary_col_name">
                         Items:
                     </td>
-                    <td class="">
+                    <td class="order_summary_col">
                         $8.06
                     </td>
                 </tr>
 
-                <tr data-testid="" class="">
-                  <td class="">
+                <tr class="order_summary_row">
+                  <td class="order_summary_col_name">
                     Shipping & handling:
                   </td>
-                  <td class="">
+                  <td class="order_summary_col">
                     $0.00
                   </td>
                 </tr>
 
-                <tr class="">
+                <tr class="order_summary_row">
                   <td></td>
-                  <td class=""><hr class=""></td>
+                  <td class="order_summary_col"><hr class=""></td>
                 </tr>
 
 
-                <tr data-testid="" class="">
-                  <td class="">
+                <tr class="order_summary_row">
+                  <td class="order_summary_col_name">
                     Total before tax:
                   </td>
-                  <td class="">
+                  <td class="order_summary_col">
                     $8.06
                   </td>
                 </tr>
 
 
-                <tr data-testid="" class="">
-                  <td class="">
-                    Estimated tax to be collected:*
+                <tr class="order_summary_row">
+                  <td class="order_summary_col_name">
+                    Estimated tax:
                   </td>
-                  <td class="">
+                  <td class="order_summary_col">
                     $0.00
                   </td>
                 </tr>
 
 
-                <tr data-testid="" class="">
-                  <td class="">
+                <tr class="order_summary_row">
+                  <td class="order_summary_col">
                     Total:
                   </td>
-                  <td class="">
+                  <td class="order_summary_col">
                     $8.06
                   </td>
                 </tr>
+                
 
-
-                <tr data-testid="" class="">
-                  <td class="">
-                    Gift Card:
-                  </td>
-                  <td class="">
-                    -$8.06
-                  </td>
-                </tr>
-
-
-                <tr class="">
+                <tr class="order_summary_row">
                   <td colspan="2" class="cell-separator"><hr class="a-spacing-mini a-divider-normal"></td>
                 </tr>
-                <tr data-testid="">
-                  <td class="">
+                
+                <tr>
+                  <td class="order_summary_col_name">
                     Order total:
                   </td>
-                  <td class="">
+                  <td class="order_summary_col">
                     $0.00
                   </td>
                 </tr>
             </table>
-            
+ <hr>
+
          <!--submit button-->
-         <div style>
-             <input type="submit">
+         <div class="submit_button_container">
+             <input class="order_button" type="submit" value="Place Your Order">
          </div>
                     
         </div>  
