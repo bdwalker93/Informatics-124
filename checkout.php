@@ -19,7 +19,7 @@
 
 <html>
     <head>
-        <title>Motorola - Moto Watch </title>
+        <title>Watch Guyz - Checkout</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -45,162 +45,121 @@
         </nav>
 
          <!--Start of page-->
-<div style="float: left">
-        <form name="purchase_email" id="purchase_form" action="MAILTO:orders@thewatchguyz.com?subject=Watch%20Order" onsubmit="return validateEmail()" method="post" enctype="text/plain"> 
-            <table>
-                <caption style="font-size:30px">ORDER FORM</caption>
-                <tr class="order_product_details">
-                    <td>
-                        Product Model<br>
-                        <input type="text" name="Product Model" required>
-                    </td>
-                    <td>
-                        Size<br>
-                        <input type="text" name="Size" required>
-                    </td>
-                    <td>
-                        Quantity<br>
-                        <input type="text" name="Quantity" required> 
-                    </td>
-                </tr>
-                <tr class="order_contact_details">
-                    <td>
-                        First Name<br>
-                        <input type="text" name="First Name" required>
-                    </td>
-                    <td>
-                        Last Name<br>
-                        <input type="text" name="Last Name" required>
-                    </td>
-                     <td>
-                         Phone<br>
-                        <input type="text" name="Phone Number" required>
-                    </td>
-                </tr>
-
-                <tr class="order_address_details">
-                    <td> Street<br>
-                        <input type="text" name="Street" required>
-                    </td>
-                    <td>
-                        City<br>
-                        <input type="text" name="City" required>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>State<br><input type="text" name="State" size="5" required></li>
-                            <li style="padding-left: 22px">Zip Code<br><input type="text" name="Zip Code" size="3" required></li>
-                        </ul>
-                    </td>
-
-                </tr>
-                
-                <tr>
-                    <td>
-                        <div style="text-align: center; padding-bottom: 8px">Shipping Method</div>
-                        <input type="radio" name="Shipping Info" value="Overnight">Overnight ($20)<br>
-                        <input type="radio" name="Shipping Info" value="2-Day Expedited">2-Day Expedited ($10)<br>
-                        <input type="radio" name="Shipping Info" value="6-Day Ground" checked>6-Day Ground (Free)<br>
-                    </td>
-                    <td colspan="2" style="text-align: center">
-                        Notes<br>
-                        <textarea name="Notes" form="purchase_form" style="margin: 0px; height: 106px; width: 356px;"></textarea>
-                    </td>
-                </tr>
-                
-                <tr class="credit_card_details">
-                    <td colspan="3"><label style="padding-right: 5px; font-size: 20px">Credit Card Number </label><input type="text" name="Credit Card Number" required style="width: 40%"></td>
-                </tr>   
-                
-                <tr>
-                    <td colspan="3" class="submit_cell"><input type="submit" style="width:300px;height:40px;"></td>
-                </tr>    
-                    
-            </table>
-        </form>
-</div>
          
-<div style="float: right">  
-        <!--Order summary box-->
-        <table class="order_summary_table">
-            <tr class="">
-                <td class="">
-                    Items:
-                </td>
-                <td class="">
+         
+         <h1>Checkout</h1>
+         
+
+         <!--Handles all of the contents on the left side of the page-->
+        <div class="left_container" >
+            
+            <!--This is for product details-->
+           Maybe a product image here
+           <br>Maybe a watch size here if aplicable
+            <br>maybe a quantity here
+             <br> <br>
+             
+            <!--This is for personal details-->               
+            <table class="checkout_table">
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        First name 
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="first_name" required>
+                    </td>
+                </tr>
+                <tr class="checkout_table_row">
+                    <td class="checkout_table_col">
+                        Last name 
+                    </td>
+                    <td class="checkout_table_col">
+                        <input type="text" name="last_name" required>
+                    </td>
+                </tr>
+            </table>
+        </div>
+         
+        <div class="right_container" >  
+            <!--Order summary box-->
+            <table class="order_summary_table">
+                <tr class="">
+                    <td class="">
+                        Items:
+                    </td>
+                    <td class="">
+                        $8.06
+                    </td>
+                </tr>
+
+                <tr data-testid="" class="">
+                  <td class="">
+                    Shipping & handling:
+                  </td>
+                  <td class="">
+                    $0.00
+                  </td>
+                </tr>
+
+                <tr class="">
+                  <td></td>
+                  <td class=""><hr class=""></td>
+                </tr>
+
+
+                <tr data-testid="" class="">
+                  <td class="">
+                    Total before tax:
+                  </td>
+                  <td class="">
                     $8.06
-                </td>
-            </tr>
-
-            <tr data-testid="" class="">
-              <td class="">
-                Shipping & handling:
-              </td>
-              <td class="">
-                $0.00
-              </td>
-            </tr>
-
-            <tr class="">
-              <td></td>
-              <td class=""><hr class=""></td>
-            </tr>
+                  </td>
+                </tr>
 
 
-            <tr data-testid="" class="">
-              <td class="">
-                Total before tax:
-              </td>
-              <td class="">
-                $8.06
-              </td>
-            </tr>
+                <tr data-testid="" class="">
+                  <td class="">
+                    Estimated tax to be collected:*
+                  </td>
+                  <td class="">
+                    $0.00
+                  </td>
+                </tr>
 
 
-            <tr data-testid="" class="">
-              <td class="">
-                Estimated tax to be collected:*
-              </td>
-              <td class="">
-                $0.00
-              </td>
-            </tr>
+                <tr data-testid="" class="">
+                  <td class="">
+                    Total:
+                  </td>
+                  <td class="">
+                    $8.06
+                  </td>
+                </tr>
 
 
-            <tr data-testid="" class="">
-              <td class="">
-                Total:
-              </td>
-              <td class="">
-                $8.06
-              </td>
-            </tr>
+                <tr data-testid="" class="">
+                  <td class="">
+                    Gift Card:
+                  </td>
+                  <td class="">
+                    -$8.06
+                  </td>
+                </tr>
 
 
-            <tr data-testid="" class="">
-              <td class="">
-                Gift Card:
-              </td>
-              <td class="">
-                -$8.06
-              </td>
-            </tr>
-
-
-            <tr class="">
-              <td colspan="2" class="cell-separator"><hr class="a-spacing-mini a-divider-normal"></td>
-            </tr>
-            <tr data-testid="">
-              <td class="">
-                Order total:
-              </td>
-              <td class="">
-                $0.00
-              </td>
-            </tr>
-        </table>
-        
-</div>      			
+                <tr class="">
+                  <td colspan="2" class="cell-separator"><hr class="a-spacing-mini a-divider-normal"></td>
+                </tr>
+                <tr data-testid="">
+                  <td class="">
+                    Order total:
+                  </td>
+                  <td class="">
+                    $0.00
+                  </td>
+                </tr>
+            </table>
+        </div>      			
         
         
          <!--        This is the footer-->

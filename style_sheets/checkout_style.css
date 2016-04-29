@@ -8,7 +8,35 @@
                 background-color: #d6d7dc;
             }*/
             
-            .order_product_details{
+            h1{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 45px;
+            }
+            
+            .left_container{
+                float: left; 
+                border: 1px solid black;
+                width: 500px;
+                height: 500px;
+            }
+            
+            .checkout_table_row{
+                border: 1px solid black;
+
+            }
+            
+            .checkout_table_col{
+                border: 1px solid black;
+                width: 300px;
+            }
+            .right_container{
+                float: right; 
+                border: 1px solid black;
+            }
+            
+/*            .order_product_details{
                 text-align:center; 
             }
                        
@@ -39,11 +67,11 @@
             }
             
             .submit_cell{
-                /*border: 1px solid black;*/
+                border: 1px solid black;
                 text-align: center; 
             }
             
             .order_summary_table{
                 border: 1px solid black;
 
-            }
+            }*/
