@@ -63,7 +63,7 @@
                      <tr class="product_table_row" >
                         <td class="image_col" colspan="2">
                             <?php      
-                                    echo "<img class='product_image' src='images/product_images/rolex1.jpg' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
+                                    echo "<img class='product_image' src='".$productInfo['image_path']."' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
                             ?>                        
                         </td>
 
@@ -74,7 +74,7 @@
                             Product Brand 
                         </td>
                         <td class="product_table_col">
-                            <label>Rolex</label>
+                            <label><?php echo $productInfo['brand']; ?></label>
                         </td>
                     </tr>
                     
@@ -84,7 +84,7 @@
                             Product name 
                         </td>
                         <td class="product_table_col">
-                            <label>Submariner</label>
+                            <label><?php echo $productInfo['name']; ?></label>
                         </td>
                     </tr>
                     
@@ -93,7 +93,7 @@
                             Product ID 
                         </td>
                         <td class="product_table_col">
-                            <label>#1234</label>
+                            <label>#<?php echo $productInfo['id'] ?></label>
                         </td>
                     </tr>
                     
