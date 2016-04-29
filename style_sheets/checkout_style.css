@@ -6,7 +6,7 @@
                 margin-top: 40px;
                 border-spacing: 15px; 
                 background-color: #d6d7dc;
-            }
+            }*/
             
             .order_product_details{
                 text-align:center; 
@@ -39,6 +39,11 @@
             }
             
             .submit_cell{
-                border: 1px solid black;
+                /*border: 1px solid black;*/
                 text-align: center; 
-            }*/
+            }
+            
+            .order_summary_table{
+                border: 1px solid black;
+
+            }

@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<!--
-    This will be the detailed information for the "" watch
-        The user should be able to choose a product from this table by clicking
-        on the corresponding image, which should lead to a new page that provides 
-        additional details about the product, e.g., more images, detailed 
-        description, etc.     
-        On the detailed description page, the user should be able to order a 
-        product by filling a form. The form should allow the user to enter the 
-        product identifier, quantity, first name, last name, phone number, 
-        shipping address, shipping method (e.g., overnight, 2-days expedited,
-        6-days ground), credit card information, and anything else that you 
-        think makes sense for your business.
--->
+<?php
+    //requiring our db variable
+    require_once 'pdo.php';
+    
+    //get the product id number to determine which information to load
+    $productIdNumber = $_GET['productID'];
+    
+    //queries the product_description table for the entire row filled with all of
+    //      the product information using a prepared statement
+    $sql = 'SELECT *
+            FROM product_descriptions
+            WHERE id = :productIdNumber';
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':productIdNumber', $productIdNumber);
+    $stmt->execute();
+    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <html>
     <head>
         <title>Motorola - Moto Watch </title>
@@ -20,7 +25,7 @@
         
         <link rel="stylesheet" type="text/css" href="style_sheets/navigation_style.css">
         <link rel="stylesheet" type="text/css" href="style_sheets/body_style.css">
-        <link rel="stylesheet" type="text/css" href="style_sheets/product_description_style.css">
+        <link rel="stylesheet" type="text/css" href="style_sheets/checkout_style.css">
         
         <script src="email_validation.js"></script>
 
@@ -38,22 +43,9 @@
 
         </ul>
         </nav>
-         
-<!--         Start of page-->
-        <h1>Motorola</h1>
-        <h2>Moto Watch</h2>
-        
-        <img class="product_image" src="images/product_images/motorola.png" alt="This can be a background watch picture">
 
-        <div class="description_text">
-        The Moto 360 is the most attractive Android Wear device you can buy right now, with a design that's more reminiscent of a regular watch. Even so, it suffers from poor battery life, just like other early smartwatches, and it has a higher price, too.
-        </div>
-
-        <div class="specs_text">
-            Price: $300
-            <br>Product Model: MOTO-WATCH
-        </div>
-        
+         <!--Start of page-->
+<div style="float: left">
         <form name="purchase_email" id="purchase_form" action="MAILTO:orders@thewatchguyz.com?subject=Watch%20Order" onsubmit="return validateEmail()" method="post" enctype="text/plain"> 
             <table>
                 <caption style="font-size:30px">ORDER FORM</caption>
@@ -126,15 +118,94 @@
                     
             </table>
         </form>
+</div>
+         
+<div style="float: right">  
+        <!--Order summary box-->
+        <table class="order_summary_table">
+            <tr class="">
+                <td class="">
+                    Items:
+                </td>
+                <td class="">
+                    $8.06
+                </td>
+            </tr>
+
+            <tr data-testid="" class="">
+              <td class="">
+                Shipping & handling:
+              </td>
+              <td class="">
+                $0.00
+              </td>
+            </tr>
+
+            <tr class="">
+              <td></td>
+              <td class=""><hr class=""></td>
+            </tr>
+
+
+            <tr data-testid="" class="">
+              <td class="">
+                Total before tax:
+              </td>
+              <td class="">
+                $8.06
+              </td>
+            </tr>
+
+
+            <tr data-testid="" class="">
+              <td class="">
+                Estimated tax to be collected:*
+              </td>
+              <td class="">
+                $0.00
+              </td>
+            </tr>
+
+
+            <tr data-testid="" class="">
+              <td class="">
+                Total:
+              </td>
+              <td class="">
+                $8.06
+              </td>
+            </tr>
+
+
+            <tr data-testid="" class="">
+              <td class="">
+                Gift Card:
+              </td>
+              <td class="">
+                -$8.06
+              </td>
+            </tr>
+
+
+            <tr class="">
+              <td colspan="2" class="cell-separator"><hr class="a-spacing-mini a-divider-normal"></td>
+            </tr>
+            <tr data-testid="">
+              <td class="">
+                Order total:
+              </td>
+              <td class="">
+                $0.00
+              </td>
+            </tr>
+        </table>
         
-        
-        
-			
+</div>      			
         
         
          <!--        This is the footer-->
         <footer>
-            <ul>
+            <ul style="position: fixed; bottom: 0; width: 100%">
             <li><Div style="font-size: 20px;">University of California, Irvine</div></li>
             <li><Div style="font-size: 20px;">Informatics 124/ CS 137</div></li>
             <li style="float:right;">Spring 2016</li>
