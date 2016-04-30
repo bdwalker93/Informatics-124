@@ -29,7 +29,7 @@
         <link rel="stylesheet" type="text/css" href="style_sheets/body_style.css">
         <link rel="stylesheet" type="text/css" href="style_sheets/checkout_style.css">
         
-        <script src="email_validation.js"></script>
+        <script src="checkout.js"></script>
 
         
     </head>
@@ -52,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form action="confirmation.php" onsubmit="order_validation" method="get">
+         <form name="order_form" action="confirmation.php" onsubmit="order_validation" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="zip_code" required>
+                               <input type="text" name="zip_code" onblur="getZipInfo(this.value)" required>
                            </td>
                        </tr>
 
@@ -202,13 +202,13 @@
                            </td>
                            <td class="shipping_col">
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="Overnight">Overnight ($20)<br>
+                                   <input type="radio" name="shipping_info" value="Overnight" onclick="updateShipping(this.value)">Overnight ($20)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="2-Day Expedited">2-Day Expedited ($10)<br>
+                                   <input type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateShipping(this.value)">2-Day Expedited ($10)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="6-Day Ground" checked>6-Day Ground (Free)<br>
+                                   <input type="radio" name="shipping_info" value="6-Day Ground" onclick="updateShipping(this.value)" checked>6-Day Ground (Free)<br>
                                </div>
                            </td>
                        </tr>
@@ -219,7 +219,7 @@
                                Credit Card Number
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="credit_card_number" required>
+                               <input type="text" name="credit_card_number" onblur="detectCardType(this.value)"required>
                            </td>
                        </tr>
 
@@ -266,7 +266,7 @@
                        Shipping & handling:
                      </td>
                      <td class="order_summary_col">
-                       $0.00
+                         <label class="tax_label">$0.00</label>
                      </td>
                    </tr>
 
