@@ -116,6 +116,7 @@ function validateEmail(){
     }
 }
 
+//AJAX function
 function getZipInfo(zipCode){
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function()
@@ -129,14 +130,32 @@ function getZipInfo(zipCode){
            //splits the response to city and state
             var ar = result.split(",");
             
-            //handles city
-            document.forms["order_form"]["city"].value = ar[0];
-
-            //handles state
-            document.forms["order_form"]["state"].value = ar[1];
+            //makes sure user didnt aalready type something in city field
+            if(document.forms["order_form"]["city"].value ==="")
+                document.forms["order_form"]["city"].value = ar[0];
+            
+            //makes sure user didnt aalready type something in state field
+            if(document.forms["order_form"]["state"].value ==="")
+                document.forms["order_form"]["state"].value = ar[1];
         }
-    }
+    };
     
     xhr.open("GET","getCityState.php?zipCode=" + zipCode, true);
     xhr.send();
+}
+
+
+function updateShipping(type){
+    var shippingCost = "-1";
+    
+    if(type === "Overnight")
+        shippingCost = "20.00";
+    else if(type === "2-Day Expedited")
+        shippingCost = "10.00";
+    else if(type === "6-Day Ground")
+        shippingCost = "0.00";
+
+    //sets the order summary value
+    document.getElementsByClassName("tax_label")[0].innerHTML = shippingCost;
+    
 }

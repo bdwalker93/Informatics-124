@@ -202,13 +202,13 @@
                            </td>
                            <td class="shipping_col">
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="Overnight">Overnight ($20)<br>
+                                   <input type="radio" name="shipping_info" value="Overnight" onclick="updateShipping(this.value)">Overnight ($20)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="2-Day Expedited">2-Day Expedited ($10)<br>
+                                   <input type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateShipping(this.value)">2-Day Expedited ($10)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="Shipping Info" value="6-Day Ground" checked>6-Day Ground (Free)<br>
+                                   <input type="radio" name="shipping_info" value="6-Day Ground" onclick="updateShipping(this.value)" checked>6-Day Ground (Free)<br>
                                </div>
                            </td>
                        </tr>
@@ -266,7 +266,7 @@
                        Shipping & handling:
                      </td>
                      <td class="order_summary_col">
-                       $0.00
+                         <label class="tax_label">$0.00</label>
                      </td>
                    </tr>
 
