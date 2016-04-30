@@ -1,39 +1,33 @@
-<?php
-//    //requiring our db variable
-//    require_once 'pdo.php';
-//    
-//    //get the product id number to determine which information to load
-//    $productIdNumber = $_GET['productID'];
-//    
-//    //queries the product_description table for the entire row filled with all of
-//    //      the product information using a prepared statement
-//    $sql = 'SELECT *
-//            FROM product_descriptions
-//            WHERE id = :productIdNumber';
-//    $stmt = $conn->prepare($sql);
-//    $stmt->bindParam(':productIdNumber', $productIdNumber);
-//    $stmt->execute();
-//    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-?>
+
 <?php 
     require_once 'pdo.php';
     
-    $orderID = $_GET['orderID'];
+    $orderID = $_GET['productID'];
     $sql = "SELECT *
             FROM order_information
-            WHERE order_id = :orderID"; 
+            WHERE id =: productIdNumber"; 
     $stmt = $conn -> prepare($sql);
     $stmt->bindParam(':orderID', $orderID);
     $stmt->execute();
     $customerInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-    /*foreach($conn->query($sql) as $row) {
-        print $customerInfo['order_id'] ."&nbsp";
-        print $customerInfo['first_name'] . "&nbsp";
-        print $customerInfo['product_id'] . "&nbsp";
-        print $customerInfo['shipping_speed'] . "</br>";
-    }*/
+  
+?>
+<?php
+    //requiring our db variable
+    require_once 'pdo.php';
     
-
+    //get the product id number to determine which information to load
+    $productIdNumber = $_GET['productID'];
+    
+    //queries the product_description table for the entire row filled with all of
+    //      the product information using a prepared statement
+    $sqlp = 'SELECT *
+            FROM product_descriptions
+            WHERE id = :productIdNumber';
+    $stmt = $conn->prepare($sqlp);
+    $stmt->bindParam(':productIdNumber', $productIdNumber);
+    $stmt->execute();
+    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <html>
     <head>
@@ -90,20 +84,16 @@
             <tr>
                 <td>
                     <?php
-                        echo"The order was sent to :" . "<div style='color:red;'>". $customerInfo['first_name'] ."</div>". "<br>";
+                        echo"The order was sent to : ". "<b><n style=color:orange;>" .$customerInfo['first_name'] . " " . $customerInfo['last_name']."</n></b>". "<br>";
                         //print"\r\n";
-                        echo"Order Number: #" . $customerInfo['order_id'];
-                        echo"The order was sent to :" . $customerInfo['street'].$customerInfo['city'] . $customerInfo['state']. $customerInfo['zip_code']. "<br>";                    ?>
+                        echo"Contact Number: " ."<b>". $customerInfo['phone_number']. "</b>". "<br>";
+                        echo"The order was sent to :" ."<b>". $customerInfo['street']. " ". $customerInfo['city'] . " ". $customerInfo['state']. $customerInfo['zip_code']."</b>". "<br>";                    
+                        ?>
                 </td>
                 <td>
                     <?php
-                        //echo"Expected delivery date on:" . "<br>";
-                        //echo "date etc" . "<br>";
-                        echo "Shipping Speed: " . $customerInfo['shipping_type']. "<br>";
-                        echo "speed of shpping";
-                        
-                        
-                        
+                        echo "Shipping Speed: "."<b>" . $customerInfo['shipping_type']. "</b>". "<br>";
+                       
                     ?>
                 </td>
 
@@ -115,13 +105,23 @@
         <table>
             <tr>
                 <td>
-                    <p>picture of the product that was ordered</p>
+                    <?php
+                        echo"Order number #" . $customerInfo['order_id'] . "<br>";
+                        echo"<img class='product_image' src='" .$productInfo['image_path']. "' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
+        
+                    
+                    ?>
                 </td>
-                <td>
-                    <p>description  load</p>
+                <td class="orderDescription">
+                    <?php
+                        echo "<b>". $productInfo['name'] ."</b>" . "<br>";
+                        echo $productInfo['description']; 
+                    ?>
                 </td>
-                <td>
-                    <p>price</p>
+                <td class="orderPrice">
+                    <?php
+                        echo "<b>$" .$productInfo['price']. "</b>";
+                    ?>
                 </td>
             </tr>
         </table>
