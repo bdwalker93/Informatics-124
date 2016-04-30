@@ -219,7 +219,7 @@
                                Credit Card Number
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="credit_card_number" required>
+                               <input type="text" name="credit_card_number" onblur="detectCardType(this.value)"required>
                            </td>
                        </tr>
 
