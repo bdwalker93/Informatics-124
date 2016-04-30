@@ -1,33 +1,19 @@
-
 <?php 
+    //load db variable
     require_once 'pdo.php';
-    
-    $orderID = $_GET['productID'];
+    //getting orderID to match with the database
+    $orderIdNumber = 5621;
+    //query to get customer information base on the orderID number and join it wiht productID to get product description and image.
     $sql = "SELECT *
             FROM order_information
-            WHERE id =: productIdNumber"; 
+            INNER JOIN product_descriptions
+            ON order_information.product_id = product_descriptions.id
+            WHERE order_id = :orderIdNumber"; 
     $stmt = $conn -> prepare($sql);
-    $stmt->bindParam(':orderID', $orderID);
+    $stmt->bindParam(':orderIdNumber', $orderIdNumber);
     $stmt->execute();
     $customerInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-  
-?>
-<?php
-    //requiring our db variable
-    require_once 'pdo.php';
-    
-    //get the product id number to determine which information to load
-    $productIdNumber = $_GET['productID'];
-    
-    //queries the product_description table for the entire row filled with all of
-    //      the product information using a prepared statement
-    $sqlp = 'SELECT *
-            FROM product_descriptions
-            WHERE id = :productIdNumber';
-    $stmt = $conn->prepare($sqlp);
-    $stmt->bindParam(':productIdNumber', $productIdNumber);
-    $stmt->execute();
-    $productInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+     
 ?>
 <html>
     <head>
@@ -87,7 +73,7 @@
                         echo"The order was sent to : ". "<b><n style=color:orange;>" .$customerInfo['first_name'] . " " . $customerInfo['last_name']."</n></b>". "<br>";
                         //print"\r\n";
                         echo"Contact Number: " ."<b>". $customerInfo['phone_number']. "</b>". "<br>";
-                        echo"The order was sent to :" ."<b>". $customerInfo['street']. " ". $customerInfo['city'] . " ". $customerInfo['state']. $customerInfo['zip_code']."</b>". "<br>";                    
+                        echo"The order was sent to :" ."<b>". $customerInfo['street']. " ". $customerInfo['city'] . " ". $customerInfo['state']. " ". $customerInfo['zip_code']."</b>". "<br>";                    
                         ?>
                 </td>
                 <td>
@@ -107,20 +93,20 @@
                 <td>
                     <?php
                         echo"Order number #" . $customerInfo['order_id'] . "<br>";
-                        echo"<img class='product_image' src='" .$productInfo['image_path']. "' alt='This is an image of the: ".$productInfo['brand']." - ".$productInfo['name']."'>";
+                        echo"<img class='product_image' src='" .$customerInfo['image_path']. "' alt='This is an image of the: ".$customerInfo['brand']." - ".$customerInfo['name']."'>";
         
                     
                     ?>
                 </td>
                 <td class="orderDescription">
                     <?php
-                        echo "<b>". $productInfo['name'] ."</b>" . "<br>";
-                        echo $productInfo['description']; 
+                        echo "<b>". $customerInfo['name'] ."</b>" . "<br>";
+                        echo $customerInfo['description']; 
                     ?>
                 </td>
                 <td class="orderPrice">
                     <?php
-                        echo "<b>$" .$productInfo['price']. "</b>";
+                        echo "<b>$" .$customerInfo['price']. "</b>";
                     ?>
                 </td>
             </tr>
