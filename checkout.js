@@ -115,3 +115,30 @@ function validateEmail(){
         return (false);
     }
 }
+
+function getZipInfo(zipCode){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;
+           
+           //splits the response to city and state
+            var ar = result.split(",");
+            
+            //makes sure user didnt aalready type something in city field
+            if(document.forms["order_form"]["city"].value ==="")
+                document.forms["order_form"]["city"].value = ar[0];
+            
+            //makes sure user didnt aalready type something in state field
+            if(document.forms["order_form"]["state"].value ==="")
+                document.forms["order_form"]["state"].value = ar[1];
+        }
+    }
+    
+    xhr.open("GET","getCityState.php?zipCode=" + zipCode, true);
+    xhr.send();
+}

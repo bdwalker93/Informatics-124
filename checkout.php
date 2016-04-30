@@ -29,7 +29,7 @@
         <link rel="stylesheet" type="text/css" href="style_sheets/body_style.css">
         <link rel="stylesheet" type="text/css" href="style_sheets/checkout_style.css">
         
-        <script src="email_validation.js"></script>
+        <script src="checkout.js"></script>
 
         
     </head>
@@ -52,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form action="confirmation.php" onsubmit="order_validation" method="get">
+         <form name="order_form" action="confirmation.php" onsubmit="order_validation" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="zip_code" required>
+                               <input type="text" name="zip_code" onblur="getZipInfo(this.value)" required>
                            </td>
                        </tr>
 
