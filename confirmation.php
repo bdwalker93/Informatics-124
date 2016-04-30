@@ -2,7 +2,7 @@
     //load db variable
     require_once 'pdo.php';
     //getting orderID to match with the database
-    $orderIdNumber = 5621;
+    $orderIdNumber = $_GET['orderID'];
     //query to get customer information base on the orderID number and join it wiht productID to get product description and image.
     $sql = "SELECT *
             FROM order_information
