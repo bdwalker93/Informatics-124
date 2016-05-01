@@ -80,7 +80,7 @@
                 //pulls the product_price from the db
                 echo "Price: $".$productInfo['price']; 
             
-                echo "<br>Product Number: ".$productInfo['id']; 
+                echo "<br>Product ID: #".$productInfo['id']; 
 
             ?>
         </div>
