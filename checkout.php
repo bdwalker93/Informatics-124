@@ -257,7 +257,7 @@
                            Item:
                        </td>
                        <td class="order_summary_col">
-                           <label class="item_price_label">$<?php echo $productInfo['price']; ?></label>
+                           $<label class="item_price_label"><?php echo $productInfo['price']; ?></label>
                        </td>
                    </tr>
 
@@ -266,7 +266,7 @@
                        Shipping & handling:
                      </td>
                      <td class="order_summary_col">
-                         <label class="shipping_label">$0.00</label>
+                         $<label class="shipping_label">0.00</label>
                      </td>
                    </tr>
 
@@ -281,7 +281,7 @@
                        Total before tax:
                      </td>
                      <td class="order_summary_col">
-                       $8.06
+                            $<label class="before_tax_label">0.00</label>
                      </td>
                    </tr>
 
@@ -291,7 +291,7 @@
                        Estimated tax:
                      </td>
                      <td class="order_summary_col">
-                         <label class="tax_label">$0.00</label>
+                         $<label class="tax_label">0.00</label>
                      </td>
                    </tr>
 
@@ -305,7 +305,7 @@
                        Order total:
                      </td>
                      <td class="order_summary_col">
-                       $0.00
+                        $<label class="order_total">0.00</label>
                      </td>
                    </tr>
                 </table>
