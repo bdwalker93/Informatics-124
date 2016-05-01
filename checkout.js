@@ -175,16 +175,32 @@ function updateTax(zip){
     xhr.send();
 }
 
-function updateOrderTotal(){
+function updateOrderTotal(zipCode, productID){
+        
+    var shippingCost = "-1";
     
-    //gets the item cost
-    document.getElementsByClassName("tax_label");
+    if(document.getElementById('shiping1').checked)
+        shippingCost = "20.00";
+    else if(document.getElementById('shiping2').checked)
+        shippingCost = "10.00";
+    else if(document.getElementById('shiping3').checked)
+        shippingCost = "0.00";
     
-    //gets the shipping cost
-    //gets the tax
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;         
+            
+            //updates the order total
+            document.getElementsByClassName("order_total")[0].innerHTML = result;                   }
+    };
     
-    //updates teh order total
-    document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];   
+    xhr.open("GET","getOrderTotal.php?zipCode=" + zipCode + "&productID=" + productID + "&shippingCost=" + shippingCost, true);
+    xhr.send();
 }
 
 

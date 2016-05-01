@@ -96,7 +96,7 @@
                                Product ID 
                            </td>
                            <td class="product_table_col">
-                               <label>#<?php echo $productInfo['id'] ?></label>
+                               #<label class="product_id"><?php echo $productInfo['id'] ?></label>
                            </td>
                        </tr>
 
@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="zip_code" onblur="getZipInfo(this.value); updateTax(this.value)" required>
+                               <input type="text" name="zip_code" onblur="getZipInfo(this.value); updateTax(this.value); updateOrderTotal(this.value, <?php echo $productInfo['id'] ?>)" required>
                            </td>
                        </tr>
 
@@ -202,13 +202,13 @@
                            </td>
                            <td class="shipping_col">
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="Overnight" onclick="updateShipping(this.value)">Overnight ($20)<br>
+                                   <input id="shiping1" type="radio" name="shipping_info" value="Overnight" onclick="updateShipping(this.value); updateOrderTotal(this.value, <?php echo $productInfo['id'] ?>)">Overnight ($20)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateShipping(this.value)">2-Day Expedited ($10)<br>
+                                   <input id="shiping2" type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateShipping(this.value); updateOrderTotal(this.value, <?php echo $productInfo['id'] ?>)">2-Day Expedited ($10)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="6-Day Ground" onclick="updateShipping(this.value)" checked>6-Day Ground (Free)<br>
+                                   <input id="shiping3" type="radio" name="shipping_info" value="6-Day Ground" onclick="updateShipping(this.value); updateOrderTotal(this.value, <?php echo $productInfo['id'] ?>)" checked>6-Day Ground (Free)<br>
                                </div>
                            </td>
                        </tr>
