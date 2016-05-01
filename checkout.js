@@ -1,4 +1,22 @@
-function order_validation(){
+function order_validation(){    
+    //checking the product info
+    var size = document.forms["order_form"]["size"].value;
+    var quantity = document.forms["order_form"]["quantity"].value;
+    
+     //checking the size
+    if(!parseInt(size)>0)
+    {
+        alert("Enter a positive number for size");
+        return false;
+    }
+
+    //checking the quantity
+    if(!parseInt(quantity)>0)
+    {
+        alert("Enter a positive number for quantity");
+        return false;
+    }
+        
     var firstName = document.forms["order_form"]["first_name"].value;
     var lastName = document.forms["order_form"]["last_name"].value
     var phoneNumber = document.forms["order_form"]["phone_number"].value;
@@ -14,6 +32,7 @@ function order_validation(){
     var zipPattern = /^[0-9]{5}$/;
     var statePattern = /^[a-zA-z]{2}$/;
     var creditPattern = /^[0-9]{16}$/;
+    var creditExprPattern = /^([0-9]{2}[//][0-9]{2})$/;
     
     //checking the first name
     if(!nonNumberPattern.test(firstName))
@@ -82,24 +101,10 @@ function order_validation(){
         alert("Credit card number must be 16 digits long!");
         return (false);
     }
-}
-
-//validates product info fields
-function validateProductInfo(){
-    var size = document.forms["order_form"]["size"].value;
-    var quantity = document.forms["order_form"]["quantity"].value;
     
-     //checking the size
-    if(!parseInt(size)>0)
+    if(!creditExprPattern.test(creditCardExpiration))
     {
-        alert("Enter a positive number for size");
-        return (false);
-    }
-
-    //checking the quantity
-    if(!parseInt(quantity)>0)
-    {
-        alert("Enter a positive number for quantity");
+        alert("Expiration date must be in the form: mm/yy");
         return (false);
     }
 }
