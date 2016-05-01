@@ -175,6 +175,19 @@ function updateTax(zip){
     xhr.send();
 }
 
+function updateOrderTotal(){
+    
+    //gets the item cost
+    document.getElementsByClassName("tax_label");
+    
+    //gets the shipping cost
+    //gets the tax
+    
+    //updates teh order total
+    document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];   
+}
+
+
 //code to verify credit card numbers
 function detectCardType(number) {
     

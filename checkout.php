@@ -39,7 +39,7 @@
         <nav>
          <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="products.php">Products</a></li>
             <li><a href="meet_the_team.html">Meet The Team</a></li>
             <li style="float:right"><a class="theme_color" href="about.html">About Us</a></li>
 
@@ -257,7 +257,7 @@
                            Item:
                        </td>
                        <td class="order_summary_col">
-                           <label class="item_price_label">$<?php echo $productInfo['price']; ?></label>
+                           $<label class="item_price_label"><?php echo $productInfo['price']; ?></label>
                        </td>
                    </tr>
 
@@ -266,7 +266,7 @@
                        Shipping & handling:
                      </td>
                      <td class="order_summary_col">
-                         <label class="shipping_label">$0.00</label>
+                         $<label class="shipping_label">0.00</label>
                      </td>
                    </tr>
 
@@ -281,7 +281,7 @@
                        Total before tax:
                      </td>
                      <td class="order_summary_col">
-                       $8.06
+                            $<label class="before_tax_label">0.00</label>
                      </td>
                    </tr>
 
@@ -291,7 +291,7 @@
                        Estimated tax:
                      </td>
                      <td class="order_summary_col">
-                         <label class="tax_label">$0.00</label>
+                         $<label class="tax_label">0.00</label>
                      </td>
                    </tr>
 
@@ -305,7 +305,7 @@
                        Order total:
                      </td>
                      <td class="order_summary_col">
-                       $0.00
+                        $<label class="order_total">0.00</label>
                      </td>
                    </tr>
                 </table>
