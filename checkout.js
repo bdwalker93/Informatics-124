@@ -150,11 +150,30 @@ function updateShipping(type){
         shippingCost = "0.00";
 
     //sets the order summary value
-    document.getElementsByClassName("tax_label")[0].innerHTML = shippingCost;
+    document.getElementsByClassName("shipping_label")[0].innerHTML = shippingCost;
     
 }
 
-
+function updateTax(zip){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;
+           
+           //splits the response to city and state
+            var ar = result.split(",");
+            
+            //updates teh order summary
+            document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];                   }
+    };
+    
+    xhr.open("GET","getTaxRate.php?zipCode=" + zip, true);
+    xhr.send();
+}
 
 //code to verify credit card numbers
 function detectCardType(number) {
