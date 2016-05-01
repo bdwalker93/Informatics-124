@@ -43,30 +43,21 @@
         <h1>Men's Watches</h1>
         
         <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "inf124grp17";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-//echo "Connected successfully<br>";
-
-
-$sql = "SELECT * FROM product_descriptions";
-$result = $conn->query($sql);
+    require_once 'pdo.php';
+    
+    $sql = 'SELECT *
+            FROM product_descriptions';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $productInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
 
 echo "<table align = 'center'> ";
 $i = 0;
-if ($result->num_rows > 0) {
+if (count($productInfo) > 0) {
     // output data of each row
     echo "<tr>";
-    while($row = $result->fetch_assoc()) {
+    foreach($productInfo as $row) {
         if ($i%3 == 0 && $i> 0) echo "</tr>";
         if ($i%3 == 0 && $i> 0) echo "<tr>";
         
@@ -86,7 +77,7 @@ echo "</tr>";
 
 echo "</table>";
 
-$conn->close();
+
 
 ?>
         
