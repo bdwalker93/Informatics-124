@@ -52,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form name="order_form" action="confirmation.php" onsubmit="order_validation" method="get">
+         <form name="order_form" id="purchase_form" action="" onsubmit="return order_validation()" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="zip_code" onblur="getZipInfo(this.value)" required>
+                               <input type="text" name="zip_code" onblur="getZipInfo(this.value); updateTax(this.value)" required>
                            </td>
                        </tr>
 
@@ -238,7 +238,7 @@
                                Notes
                            </td>
                            <td class="notes_column">
-                               <textarea name="Notes" class="notes" form="purchase_form"></textarea>
+                               <textarea  name="Notes" class="notes" form="purchase_form"></textarea>
                            </td>
                        </tr>
                    </table>
@@ -257,7 +257,7 @@
                            Item:
                        </td>
                        <td class="order_summary_col">
-                           $<?php echo $productInfo['price']; ?>
+                           <label class="item_price_label">$<?php echo $productInfo['price']; ?></label>
                        </td>
                    </tr>
 
@@ -266,7 +266,7 @@
                        Shipping & handling:
                      </td>
                      <td class="order_summary_col">
-                         <label class="tax_label">$0.00</label>
+                         <label class="shipping_label">$0.00</label>
                      </td>
                    </tr>
 
@@ -291,7 +291,7 @@
                        Estimated tax:
                      </td>
                      <td class="order_summary_col">
-                       $0.00
+                         <label class="tax_label">$0.00</label>
                      </td>
                    </tr>
 
