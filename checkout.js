@@ -152,6 +152,7 @@ function updateShipping(type){
     //sets the order summary value
     document.getElementsByClassName("shipping_label")[0].innerHTML = shippingCost;
     
+    updateBeforeTax();  
 }
 
 function updateTax(zip){
@@ -179,6 +180,7 @@ function updateOrderTotal(zipCode, productID){
         
     var shippingCost = "-1";
     
+    //checks the shipping radio buttons
     if(document.getElementById('shiping1').checked)
         shippingCost = "20.00";
     else if(document.getElementById('shiping2').checked)
@@ -195,15 +197,37 @@ function updateOrderTotal(zipCode, productID){
             //gets the response
             var result = xhr.responseText;         
             
+            //splits the response to itemcost, shipping, subtotal, order total
+            var ar = result.split(",");
+            
             //updates the order total
-            document.getElementsByClassName("order_total")[0].innerHTML = result;                   }
+            document.getElementsByClassName("order_total")[0].innerHTML = ar[3];                   
+        }
     };
     
-    xhr.open("GET","getOrderTotal.php?zipCode=" + zipCode + "&productID=" + productID + "&shippingCost=" + shippingCost, true);
+    xhr.open("GET","getSummaryValues.php?zipCode=" + zipCode + "&productID=" + productID + "&shippingCost=" + shippingCost, true);
     xhr.send();
 }
 
-
+function updateBeforeTax(){
+    
+    var itemCost = document.getElementsByClassName("item_price_label");
+    var shippingCost = "-1";
+    
+    //checks the shipping radio buttons
+    if(document.getElementById('shiping1').checked)
+        shippingCost = "20.00";
+    else if(document.getElementById('shiping2').checked)
+        shippingCost = "10.00";
+    else if(document.getElementById('shiping3').checked)
+        shippingCost = "0.00";
+    
+    var subTotal = Number(itemCost) + Number(shippingCost);
+            console.log(itemCost + " and " + shippingCost);
+            
+    //updates the total before tax
+    document.getElementsByClassName("before_tax_label")[0].innerHTML = subTotal;
+}
 //code to verify credit card numbers
 function detectCardType(number) {
     

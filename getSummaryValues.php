@@ -28,7 +28,8 @@
     $infoTax = $stmtTax->fetch(PDO::FETCH_ASSOC);
     
     $total = ($infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate'])) + $shippingCost;
+    $subTotal = ($infoProduct['price'] + $shippingCost);
     
     //returns city, state
-    echo sprintf("%.2f", $total);
+    echo $infoProduct['price'].",".$shippingCost.",".sprintf("%.2f", $subTotal).",".sprintf("%.2f", $total);
 ?>
