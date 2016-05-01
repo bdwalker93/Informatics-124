@@ -26,6 +26,8 @@
     $stmtTax->execute();
     $infoTax = $stmtTax->fetch(PDO::FETCH_ASSOC);
     
+    $total = $infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate']);
+    
     //returns city, state
-    echo $infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate']);
+    echo sprintf("%.2f", $total);
 ?>
