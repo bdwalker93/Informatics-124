@@ -1,13 +1,13 @@
 function order_validation(){
-   
-    var firstName = document.forms["order_form"]["First Name"].value;
-    var lastName = document.forms["order_form"]["Last Name"].value
-    var phoneNumber = document.forms["order_form"]["Phone Number"].value;
-//    var street = document.forms["purchase_email"]["Street"].value;
-    var city = document.forms["order_form"]["City"].value;
-    var state = document.forms["order_form"]["State"].value;
-    var zipCode = document.forms["order_form"]["Zip Code"].value;
-    var creditCardNumber = document.forms["order_form"]["Credit Card Number"].value;
+    var firstName = document.forms["order_form"]["first_name"].value;
+    var lastName = document.forms["order_form"]["last_name"].value
+    var phoneNumber = document.forms["order_form"]["phone_number"].value;
+//    var street = document.forms["purchase_email"]["street"].value;
+    var city = document.forms["order_form"]["city"].value;
+    var state = document.forms["order_form"]["state"].value;
+    var zipCode = document.forms["order_form"]["zip_code"].value;
+    var creditCardNumber = document.forms["order_form"]["credit_card_number"].value;
+    var creditCardExpiration = document.forms["order_form"]["credit_card_expiration"].value;
     
     var nonNumberPattern = /^[a-zA-Z]+/;
     var phonePattern = /^[0-9]{10}/;
