@@ -10,9 +10,10 @@ function order_validation(){
     var creditCardExpiration = document.forms["order_form"]["credit_card_expiration"].value;
     
     var nonNumberPattern = /^[a-zA-Z]+/;
-    var phonePattern = /^[0-9]{10}/;
-    var zipPattern = /^[0-9]{5}/;
-    var creditPattern = /^[0-9]{16}/;
+    var phonePattern = /^[0-9]{10}$/;
+    var zipPattern = /^[0-9]{5}$/;
+    var statePattern = /^[a-zA-z]{2}$/;
+    var creditPattern = /^[0-9]{16}$/;
     
     //checking the first name
     if(!nonNumberPattern.test(firstName))
@@ -46,9 +47,9 @@ function order_validation(){
     }
     
     //checking the state
-    if(!nonNumberPattern.test(state))
+    if(!statePattern.test(state))
     {
-        alert("States cannot have any numbers in them!");
+        alert("States cannot have any numbers in them and must be only 2 letters!");
         return (false);
     }
     
