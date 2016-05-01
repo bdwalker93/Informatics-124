@@ -1,51 +1,18 @@
-function validateEmail(){
-    var productModel = document.forms["purchase_email"]["Product Model"].value;
-    var size = document.forms["purchase_email"]["Size"].value;
-    var quantity = document.forms["purchase_email"]["Quantity"].value;
-    var firstName = document.forms["purchase_email"]["First Name"].value;
-    var lastName = document.forms["purchase_email"]["Last Name"].value
-    var phoneNumber = document.forms["purchase_email"]["Phone Number"].value;
+function order_validation(){
+   
+    var firstName = document.forms["order_form"]["First Name"].value;
+    var lastName = document.forms["order_form"]["Last Name"].value
+    var phoneNumber = document.forms["order_form"]["Phone Number"].value;
 //    var street = document.forms["purchase_email"]["Street"].value;
-    var city = document.forms["purchase_email"]["City"].value;
-    var state = document.forms["purchase_email"]["State"].value;
-    var zipCode = document.forms["purchase_email"]["Zip Code"].value;
-    var creditCardNumber = document.forms["purchase_email"]["Credit Card Number"].value;
+    var city = document.forms["order_form"]["City"].value;
+    var state = document.forms["order_form"]["State"].value;
+    var zipCode = document.forms["order_form"]["Zip Code"].value;
+    var creditCardNumber = document.forms["order_form"]["Credit Card Number"].value;
     
     var nonNumberPattern = /^[a-zA-Z]+/;
     var phonePattern = /^[0-9]{10}/;
     var zipPattern = /^[0-9]{5}/;
     var creditPattern = /^[0-9]{16}/;
-
-    //checking the product model
-    productModel = productModel.toUpperCase();
-    if(productModel !== "AP-QUE-II-CUP" 
-            && productModel !== "ROYAL-OAK-OFFSHORE"
-            && productModel !== "IWATCH"
-            && productModel !== "FERERRI"
-            && productModel !== "WBC"
-            && productModel !== "SPIRIT-OF-BIG-BANG"
-            && productModel !== "S2-SMART-WATCH"
-            && productModel !== "MOTO-WATCH"
-            && productModel !== "SIENNA"
-            && productModel !== "MR-BRAINWASH")
-    {
-        alert("Product Model Does Not Exist! (Enter the exact product model)");
-        return (false);
-    }
- 
-    //checking the size
-    if(!parseInt(size)>0)
-    {
-        alert("Enter a positive number for size");
-        return (false);
-    }
-
-    //checking the quantity
-    if(!parseInt(quantity)>0)
-    {
-        alert("Enter a positive number for quantity");
-        return (false);
-    }
     
     //checking the first name
     if(!nonNumberPattern.test(firstName))
@@ -115,6 +82,27 @@ function validateEmail(){
         return (false);
     }
 }
+
+//validates product info fields
+function validateProductInfo(){
+    var size = document.forms["order_form"]["size"].value;
+    var quantity = document.forms["order_form"]["quantity"].value;
+    
+     //checking the size
+    if(!parseInt(size)>0)
+    {
+        alert("Enter a positive number for size");
+        return (false);
+    }
+
+    //checking the quantity
+    if(!parseInt(quantity)>0)
+    {
+        alert("Enter a positive number for quantity");
+        return (false);
+    }
+}
+
 
 //AJAX function
 function getZipInfo(zipCode){
