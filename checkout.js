@@ -1,51 +1,38 @@
-function validateEmail(){
-    var productModel = document.forms["purchase_email"]["Product Model"].value;
-    var size = document.forms["purchase_email"]["Size"].value;
-    var quantity = document.forms["purchase_email"]["Quantity"].value;
-    var firstName = document.forms["purchase_email"]["First Name"].value;
-    var lastName = document.forms["purchase_email"]["Last Name"].value
-    var phoneNumber = document.forms["purchase_email"]["Phone Number"].value;
-//    var street = document.forms["purchase_email"]["Street"].value;
-    var city = document.forms["purchase_email"]["City"].value;
-    var state = document.forms["purchase_email"]["State"].value;
-    var zipCode = document.forms["purchase_email"]["Zip Code"].value;
-    var creditCardNumber = document.forms["purchase_email"]["Credit Card Number"].value;
+function order_validation(){    
+    //checking the product info
+    var size = document.forms["order_form"]["size"].value;
+    var quantity = document.forms["order_form"]["quantity"].value;
     
-    var nonNumberPattern = /^[a-zA-Z]+/;
-    var phonePattern = /^[0-9]{10}/;
-    var zipPattern = /^[0-9]{5}/;
-    var creditPattern = /^[0-9]{16}/;
-
-    //checking the product model
-    productModel = productModel.toUpperCase();
-    if(productModel !== "AP-QUE-II-CUP" 
-            && productModel !== "ROYAL-OAK-OFFSHORE"
-            && productModel !== "IWATCH"
-            && productModel !== "FERERRI"
-            && productModel !== "WBC"
-            && productModel !== "SPIRIT-OF-BIG-BANG"
-            && productModel !== "S2-SMART-WATCH"
-            && productModel !== "MOTO-WATCH"
-            && productModel !== "SIENNA"
-            && productModel !== "MR-BRAINWASH")
-    {
-        alert("Product Model Does Not Exist! (Enter the exact product model)");
-        return (false);
-    }
- 
-    //checking the size
+     //checking the size
     if(!parseInt(size)>0)
     {
         alert("Enter a positive number for size");
-        return (false);
+        return false;
     }
 
     //checking the quantity
     if(!parseInt(quantity)>0)
     {
         alert("Enter a positive number for quantity");
-        return (false);
+        return false;
     }
+        
+    var firstName = document.forms["order_form"]["first_name"].value;
+    var lastName = document.forms["order_form"]["last_name"].value
+    var phoneNumber = document.forms["order_form"]["phone_number"].value;
+//    var street = document.forms["purchase_email"]["street"].value;
+    var city = document.forms["order_form"]["city"].value;
+    var state = document.forms["order_form"]["state"].value;
+    var zipCode = document.forms["order_form"]["zip_code"].value;
+    var creditCardNumber = document.forms["order_form"]["credit_card_number"].value;
+    var creditCardExpiration = document.forms["order_form"]["credit_card_expiration"].value;
+    
+    var nonNumberPattern = /^[a-zA-Z]+/;
+    var phonePattern = /^[0-9]{10}$/;
+    var zipPattern = /^[0-9]{5}$/;
+    var statePattern = /^[a-zA-z]{2}$/;
+    var creditPattern = /^[0-9]{16}$/;
+    var creditExprPattern = /^([0-9]{2}[//][0-9]{2})$/;
     
     //checking the first name
     if(!nonNumberPattern.test(firstName))
@@ -79,9 +66,9 @@ function validateEmail(){
     }
     
     //checking the state
-    if(!nonNumberPattern.test(state))
+    if(!statePattern.test(state))
     {
-        alert("States cannot have any numbers in them!");
+        alert("States cannot have any numbers in them and must be only 2 letters!");
         return (false);
     }
     
@@ -114,7 +101,14 @@ function validateEmail(){
         alert("Credit card number must be 16 digits long!");
         return (false);
     }
+    
+    if(!creditExprPattern.test(creditCardExpiration))
+    {
+        alert("Expiration date must be in the form: mm/yy");
+        return (false);
+    }
 }
+
 
 //AJAX function
 function getZipInfo(zipCode){
@@ -156,11 +150,30 @@ function updateShipping(type){
         shippingCost = "0.00";
 
     //sets the order summary value
-    document.getElementsByClassName("tax_label")[0].innerHTML = shippingCost;
+    document.getElementsByClassName("shipping_label")[0].innerHTML = shippingCost;
     
 }
 
-
+function updateTax(zip){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;
+           
+           //splits the response to city and state
+            var ar = result.split(",");
+            
+            //updates teh order summary
+            document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];                   }
+    };
+    
+    xhr.open("GET","getTaxRate.php?zipCode=" + zip, true);
+    xhr.send();
+}
 
 //code to verify credit card numbers
 function detectCardType(number) {

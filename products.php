@@ -45,7 +45,7 @@
         <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "inf124grp17";
 
 // Create connection
