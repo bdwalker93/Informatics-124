@@ -27,5 +27,5 @@
     $infoTax = $stmtTax->fetch(PDO::FETCH_ASSOC);
     
     //returns city, state
-    echo $infoProduct['price'].",".$infoTax['tax_rate'];
+    echo $infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate']);
 ?>
