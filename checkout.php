@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input id="zip_box" type="text" name="zip_code" onblur="getZipInfo(this.value);  updateEntireSummary(<?php echo $productInfo['id'] ?>)" required>
+                               <input id="zip_box" type="text" name="zip_code" onblur="validZip(this.value); getZipInfo(this.value);  updateEntireSummary(<?php echo $productInfo['id'] ?>)" required>
                            </td>
                        </tr>
 
@@ -317,6 +317,9 @@
 
                 <!--For the total cost-->
                 <input id="hidden_order_total" name="order_cost" type="hidden" value="-9999">
+
+                <!--For ensuring zip is valid-->
+                <input name="tax_valid" type="hidden" value="no">
 
                 <!--submit button-->
                 <div class="submit_button_container">

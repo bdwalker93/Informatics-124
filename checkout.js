@@ -54,9 +54,7 @@ function order_validation(){
         alert("Please enter a 10 digit phone number with only numbers");
         return (false);
     }
-    
-    //checking the street (needs no specific check because it can accept both
-    //numbers and letters
+
     
     //checking the city
     if(!nonNumberPattern.test(city))
@@ -73,31 +71,15 @@ function order_validation(){
     }
     
     //checking the zipcode
-    if(!zipPattern.test(zipCode))
+    if(document.forms["order_form"]["tax_valid"].value === "no")
     {
-        alert("Zip codes must only be 5 digits long!");
+        alert("Zip code is invalid! Enter a valid zip code!");
         return (false);
     }
-    
+        
     //validating the credit card number
     if(!creditPattern.test(creditCardNumber))
     {
-        //we could do another check in here to make sure it is a legitamate credit 
-        //  card, but it will be hard for people to test (since they probably dont
-        //  want to find a valid credit card number
-//        var sum = 0;
-//        for (var i = 0; i < val.length; i++) {
-//            var intVal = parseInt(val.substr(i, 1));
-//            if (i % 2 == 0) {
-//                intVal *= 2;
-//                if (intVal > 9) {
-//                    intVal = 1 + (intVal % 10);
-//                }
-//            }
-//            sum += intVal;
-//        }
-//        return (sum % 10) == 0;
-//    
         alert("Credit card number must be 16 digits long!");
         return (false);
     }
@@ -138,6 +120,28 @@ function getZipInfo(zipCode){
     xhr.send();
 }
 
+function validZip(zipCode)
+{
+       var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;
+           
+           //super bad way of checking but there is a issue with comparing stright responses?
+            if(result.length <= 2)
+                document.forms["order_form"]["tax_valid"].value = "no";
+            else
+                document.forms["order_form"]["tax_valid"].value = "yes";
+        }
+    };
+    
+    xhr.open("GET","validZip.php?zipCode=" + zipCode, true);
+    xhr.send(); 
+}
 
 function updateEntireSummary(productID){
         //checks the shipping radio buttons
