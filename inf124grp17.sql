@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2016 at 09:46 PM
+-- Generation Time: May 02, 2016 at 05:17 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -45,13 +45,6 @@ CREATE TABLE `order_information` (
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `order_information`
---
-
-INSERT INTO `order_information` (`order_id`, `product_id`, `order_cost`, `size`, `quantity`, `first_name`, `last_name`, `phone_number`, `street`, `city`, `state`, `zip_code`, `shipping_type`, `credit_card_number`, `credit_card_expiration`, `notes`) VALUES
-(1, 1234, 0, 'Extra Large', 1, 'Adam', 'Martin', '9456471023', '12342 Wallaby Way', 'Santa Clarita', 'CA', '92656', '2-Day Expedited', '1023468510236541', '01/22', 'These are all of my special instructions. I am going to make requests in here. This can actually be pretty sizable, so we need to make sure that we accommodate this fact. This isnt a ton of text, but it is probably enough to test. Just to make sure its big enough, i will paste it twice.  These are all of my special instructions. I am going to make requests in here. This can actually be pretty sizable, so we need to make sure that we accommodate this fact. This isnt a ton of text, but it is probably enough to test. Just to make sure its big enough, i will paste it twice.  ');
-
 -- --------------------------------------------------------
 
 --
@@ -73,7 +66,6 @@ CREATE TABLE `product_descriptions` (
 --
 
 INSERT INTO `product_descriptions` (`id`, `title`, `brand`, `name`, `description`, `price`, `image_path`) VALUES
-(1, 'this is a test watch', 'from a test brand', 'with a cool name', 'blkah asdasd\r\nasd\r\nasd\r\nasd\r\nas', 1000.99, 'images/product_images/rolex1.jpg'),
 (2, 'Hublot - Ferarri', 'Hublot', 'Ferarri', 'Taking no less than 4 years to develop, the Unico movement is the fruit of intensive research and development within Hublot own manufacture. 330 individually hand-assembled components make up this distinguished movement. With a construction that allows the addition of supplementary functions, the Unico movement can be fitted with other complications and modules such as the Flyback Chronograph, GMT or the Bi-Retrograde Chronograph.', 20000, 'images/product_images/hublot1.jpg'),
 (3, 'Hublot - Mr.Brainwash', 'Hublot', 'Mr.Brainwash', 'Rainbow ceramic case with a Green rubber strap. Fixed Gold ceramic bezel. Rainbow dial with luminous hands and alternating Arabic numeral and stick hour markers. Minute markers around the outer rim. Dial Type: Analog. Luminescent hands and markers. Date display appears between the 4 and 5 o''clock position. Chronograph - three sub-dials displaying: 60 seconds, 30 minutes and 12 hours. Automatic movement with 42 hour power reserve. Scratch resistant sapphire crystal. Screw down crown. Skeleton case back. Case diameter: 44 mm. Case thickness: 14.5 mm. Band width: 22 mm. Deployment clasp. Water resistant at 100 meters / 330 feet. Functions: chronograph, date, hour, minute, second. Dress watch style. Watch label: Swiss Made. Hublot Mr. Brainwash Men''s Watch 301.CX.130.RX.\r\n', 15000, 'images/product_images/hublot4.jpg'),
 (4, 'Apple - iWatch', 'Apple', 'iWatch', 'The Apple iWatch is a rumored smartwatch project that operates as a small "wearable computing" smartphone-type device that''s worn on a user''s wrist. Apple put the rumors of the iWatch to rest on September 9th, 2014, when it officially released the device under the name of Apple Watch instead of Apple iWatch.\r\n', 600, 'images/product_images/applewatch.jpeg'),
@@ -69266,7 +69258,7 @@ ALTER TABLE `product_descriptions`
 -- AUTO_INCREMENT for table `order_information`
 --
 ALTER TABLE `order_information`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
