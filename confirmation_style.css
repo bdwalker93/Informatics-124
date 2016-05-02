@@ -53,7 +53,7 @@ table {
     text-align: left;
 }
 .customerInfo {
-    width: 50%;
+    max-width: 50%;
 }
 .shipping{
     width: 50%
