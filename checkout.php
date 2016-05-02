@@ -281,7 +281,7 @@
                        Total before tax:
                      </td>
                      <td class="order_summary_col">
-                            $<label class="before_tax_label">0.00</label>
+                            $<label class="before_tax_label"><?php echo $productInfo['price']; ?></label>
                      </td>
                    </tr>
 
