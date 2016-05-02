@@ -106,7 +106,7 @@
                 </td>
                 <td class="orderPrice">
                     <?php
-                        echo "<b>Total Cost: $" .$customerInfo['price']. "</b>";
+                        echo "<b>Total Cost: $" .$customerInfo['order_cost']. "</b>";
                     ?>
                 </td>
             </tr>
@@ -116,10 +116,9 @@
         <br>
 
          <!--        This is the footer-->
-        <footer class="footer">
+        <footer class="footer" style="position: fixed; bottom: 0; width: 100%">
             <ul>
-            <li><Div style="font-size: 20px;
-                     ">University of California, Irvine</div></li>
+            <li><Div style="font-size: 20px;">University of California, Irvine</div></li>
             <li><Div style="font-size: 20px;">Informatics 124/ CS 137</div></li>
             <li style="float:right;">Spring 2016</li>
             </ul>
