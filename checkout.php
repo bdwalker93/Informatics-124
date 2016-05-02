@@ -115,7 +115,7 @@
                                Quantity
                            </td>
                            <td class="product_table_col">
-                               <input type="text" name="quantity" required>
+                               <input style="background-color: #d9d9d9" type="text" name="quantity" value="1" readonly>
                            </td>
                        </tr>                           
                    </table>
