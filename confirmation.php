@@ -2,7 +2,7 @@
     //load db variable
     require_once 'pdo.php';
     //getting orderID to match with the database
-    $orderIdNumber = $_GET['orderID'];
+    $orderIdNumber = $_GET['oderID'];
     //query to get customer information base on the orderID number and join it wiht productID to get product description and image.
     $sql = "SELECT *
             FROM order_information
@@ -76,7 +76,7 @@
                         echo"The order was sent to :" ."<b>". $customerInfo['street']. " ". $customerInfo['city'] . " ". $customerInfo['state']. " ". $customerInfo['zip_code']."</b>". "<br>";                    
                         ?>
                 </td>
-                <td>
+                <td class="shipping">
                     <?php
                         echo "Shipping Speed: "."<b>" . $customerInfo['shipping_type']. "</b>". "<br>";
                         echo "Customer's Note: " .$customerInfo['notes'] . "<br>";
@@ -106,7 +106,7 @@
                 </td>
                 <td class="orderPrice">
                     <?php
-                        echo "<b>Total Cost: $" .$customerInfo['price']. "</b>";
+                        echo "<b>Total Cost: $" .$customerInfo['order_cost']. "</b>";
                     ?>
                 </td>
             </tr>
@@ -126,6 +126,6 @@
         </footer>
         <?php
         $conn = null;
-        ?>  
+        ?>
     </body>
 </html>
