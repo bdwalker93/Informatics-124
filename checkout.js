@@ -3,12 +3,12 @@ function order_validation(){
     var size = document.forms["order_form"]["size"].value;
     var quantity = document.forms["order_form"]["quantity"].value;
     
-     //checking the size
-    if(!parseInt(size)>0)
-    {
-        alert("Enter a positive number for size");
-        return false;
-    }
+//     //checking the size
+//    if(!parseInt(size)>0)
+//    {
+//        alert("Enter a positive number for size");
+//        return false;
+//    }
 
     //checking the quantity
     if(!parseInt(quantity)>0)
@@ -54,9 +54,7 @@ function order_validation(){
         alert("Please enter a 10 digit phone number with only numbers");
         return (false);
     }
-    
-    //checking the street (needs no specific check because it can accept both
-    //numbers and letters
+
     
     //checking the city
     if(!nonNumberPattern.test(city))
@@ -73,31 +71,15 @@ function order_validation(){
     }
     
     //checking the zipcode
-    if(!zipPattern.test(zipCode))
+    if(document.forms["order_form"]["tax_valid"].value === "no")
     {
-        alert("Zip codes must only be 5 digits long!");
+        alert("Zip code is invalid! Enter a valid zip code!");
         return (false);
     }
-    
+        
     //validating the credit card number
     if(!creditPattern.test(creditCardNumber))
     {
-        //we could do another check in here to make sure it is a legitamate credit 
-        //  card, but it will be hard for people to test (since they probably dont
-        //  want to find a valid credit card number
-//        var sum = 0;
-//        for (var i = 0; i < val.length; i++) {
-//            var intVal = parseInt(val.substr(i, 1));
-//            if (i % 2 == 0) {
-//                intVal *= 2;
-//                if (intVal > 9) {
-//                    intVal = 1 + (intVal % 10);
-//                }
-//            }
-//            sum += intVal;
-//        }
-//        return (sum % 10) == 0;
-//    
         alert("Credit card number must be 16 digits long!");
         return (false);
     }
@@ -138,24 +120,9 @@ function getZipInfo(zipCode){
     xhr.send();
 }
 
-
-function updateShipping(type){
-    var shippingCost = "-1";
-    
-    if(type === "Overnight")
-        shippingCost = "20.00";
-    else if(type === "2-Day Expedited")
-        shippingCost = "10.00";
-    else if(type === "6-Day Ground")
-        shippingCost = "0.00";
-
-    //sets the order summary value
-    document.getElementsByClassName("shipping_label")[0].innerHTML = shippingCost;
-    
-}
-
-function updateTax(zip){
-    var xhr = new XMLHttpRequest();
+function validZip(zipCode)
+{
+       var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function()
     {
         //4== finished and 200 means good
@@ -164,27 +131,62 @@ function updateTax(zip){
             //gets the response
             var result = xhr.responseText;
            
-           //splits the response to city and state
-            var ar = result.split(",");
-            
-            //updates teh order summary
-            document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];                   }
+           //super bad way of checking but there is a issue with comparing stright responses?
+            if(result.length <= 2)
+                document.forms["order_form"]["tax_valid"].value = "no";
+            else
+                document.forms["order_form"]["tax_valid"].value = "yes";
+        }
     };
     
-    xhr.open("GET","getTaxRate.php?zipCode=" + zip, true);
-    xhr.send();
+    xhr.open("GET","validZip.php?zipCode=" + zipCode, true);
+    xhr.send(); 
 }
 
-function updateOrderTotal(){
+function updateEntireSummary(productID){
+        //checks the shipping radio buttons
+    if(document.getElementById('shiping1').checked)
+        shippingCost = "20.00";
+    else if(document.getElementById('shiping2').checked)
+        shippingCost = "10.00";
+    else if(document.getElementById('shiping3').checked)
+        shippingCost = "0.00";
     
-    //gets the item cost
-    document.getElementsByClassName("tax_label");
+    var zipCode = document.getElementById('zip_box').value;
     
-    //gets the shipping cost
-    //gets the tax
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        //4== finished and 200 means good
+        if(xhr.readyState === 4 && xhr.status === 200)
+        {
+            //gets the response
+            var result = xhr.responseText;         
+            
+            //splits the response to itemcost, shipping, subtotal, order total
+            var ar = result.split(",");
+            
+            //maybe add the update item price for the future
+            
+            //updates shipping (not really necessary to do it this way)
+            document.getElementsByClassName("shipping_label")[0].innerHTML = ar[1];
     
-    //updates teh order total
-    document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];   
+            //updates the estimated tax
+            document.getElementsByClassName("tax_label")[0].innerHTML = ar[2]; 
+            
+            //updates the before tax
+            document.getElementsByClassName("before_tax_label")[0].innerHTML = ar[3];         
+            
+            //updates the order total
+            document.getElementsByClassName("order_total")[0].innerHTML = ar[4]; 
+            
+            //updates the hidden field
+            document.getElementById("hidden_order_total").value = ar[4];           
+        }
+    };
+    
+    xhr.open("GET","getSummaryValues.php?zipCode=" + zipCode + "&productID=" + productID + "&shippingCost=" + shippingCost, true);
+    xhr.send();
 }
 
 

@@ -52,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form name="order_form" id="purchase_form" action="" onsubmit="return order_validation()" method="get">
+         <form name="order_form" id="purchase_form" action="updateOrderdb.php" onsubmit="return order_validation()" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
@@ -96,7 +96,7 @@
                                Product ID 
                            </td>
                            <td class="product_table_col">
-                               <label>#<?php echo $productInfo['id'] ?></label>
+                               #<label class="product_id"><?php echo $productInfo['id'] ?></label>
                            </td>
                        </tr>
 
@@ -115,7 +115,7 @@
                                Quantity
                            </td>
                            <td class="product_table_col">
-                               <input type="text" name="quantity" required>
+                               <input style="background-color: #d9d9d9" type="text" name="quantity" value="1" readonly>
                            </td>
                        </tr>                           
                    </table>
@@ -172,7 +172,7 @@
                                Zip Code
                            </td>
                            <td class="personal_table_col">
-                               <input type="text" name="zip_code" onblur="getZipInfo(this.value); updateTax(this.value)" required>
+                               <input id="zip_box" type="text" name="zip_code" onblur="validZip(this.value); getZipInfo(this.value);  updateEntireSummary(<?php echo $productInfo['id'] ?>)" required>
                            </td>
                        </tr>
 
@@ -202,13 +202,13 @@
                            </td>
                            <td class="shipping_col">
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="Overnight" onclick="updateShipping(this.value)">Overnight ($20)<br>
+                                   <input id="shiping1" type="radio" name="shipping_info" value="Overnight" onclick="updateEntireSummary(<?php echo $productInfo['id'] ?>)">Overnight ($20)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateShipping(this.value)">2-Day Expedited ($10)<br>
+                                   <input id="shiping2" type="radio" name="shipping_info" value="2-Day Expedited" onclick="updateEntireSummary(<?php echo $productInfo['id'] ?>)">2-Day Expedited ($10)<br>
                                </div>
                                <div style="float: top">
-                                   <input type="radio" name="shipping_info" value="6-Day Ground" onclick="updateShipping(this.value)" checked>6-Day Ground (Free)<br>
+                                   <input id="shiping3" type="radio" name="shipping_info" value="6-Day Ground" onclick="updateEntireSummary(<?php echo $productInfo['id'] ?>)" checked>6-Day Ground (Free)<br>
                                </div>
                            </td>
                        </tr>
@@ -238,7 +238,7 @@
                                Notes
                            </td>
                            <td class="notes_column">
-                               <textarea  name="Notes" class="notes" form="purchase_form"></textarea>
+                               <textarea  name="notes" class="notes" form="purchase_form"></textarea>
                            </td>
                        </tr>
                    </table>
@@ -281,7 +281,7 @@
                        Total before tax:
                      </td>
                      <td class="order_summary_col">
-                            $<label class="before_tax_label">0.00</label>
+                            $<label class="before_tax_label"><?php echo $productInfo['price']; ?></label>
                      </td>
                    </tr>
 
@@ -305,16 +305,25 @@
                        Order total:
                      </td>
                      <td class="order_summary_col">
-                        $<label class="order_total">0.00</label>
+                        $<label class="order_total"><?php echo $productInfo['price']; ?></label>
                      </td>
                    </tr>
                 </table>
                
                 <hr>
+                
+                <!--For the product id-->
+                <input name="product_id" type="hidden" value="<?php echo $productIdNumber ?>">
+
+                <!--For the total cost-->
+                <input id="hidden_order_total" name="order_cost" type="hidden" value="-9999">
+
+                <!--For ensuring zip is valid-->
+                <input name="tax_valid" type="hidden" value="no">
 
                 <!--submit button-->
                 <div class="submit_button_container">
-                    <input class="order_button" type="submit" value="Place Your Order" name="submit">
+                    <input class="order_button" type="submit" value="Place Your Order">
                 </div>
                     
             </div>  

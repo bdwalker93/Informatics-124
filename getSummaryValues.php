@@ -4,6 +4,7 @@
     //getting orderID to match with the database
     $productID = $_GET['productID'];
     $zipCode = $_GET['zipCode'];
+    $shippingCost = $_GET['shippingCost'];
     
     //query to get customer information base on the orderID number and join it wiht productID to get product description and image.
     $sqlProduct = "SELECT *
@@ -26,6 +27,10 @@
     $stmtTax->execute();
     $infoTax = $stmtTax->fetch(PDO::FETCH_ASSOC);
     
-    //returns city, state
-    echo $infoProduct['price'].",".$infoTax['tax_rate'];
+    $total = ($infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate'])) + $shippingCost;
+    $subTotal = ($infoProduct['price'] + $shippingCost);
+    $tax = ($infoProduct['price'] * $infoTax['tax_rate']);
+    
+    //returns product price, shipping cost, tax amount, sub total, total cost
+    echo $infoProduct['price'].",".$shippingCost.",".sprintf("%.2f", $tax).",".sprintf("%.2f", $subTotal).",".sprintf("%.2f", $total);
 ?>
