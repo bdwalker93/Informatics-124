@@ -18,3 +18,6 @@
     //returns city, state
     echo $info['city'].",".$info['state'];
 ?>
+<?php
+    $conn = null;
+?>  

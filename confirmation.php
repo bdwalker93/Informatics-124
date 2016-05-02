@@ -123,8 +123,9 @@
             <li style="float:right;">Spring 2016</li>
             </ul>
         </footer>
-        <?php
-        $conn = null;
-        ?>  
     </body>
 </html>
+
+<?php
+    $conn = null;
+?>  
