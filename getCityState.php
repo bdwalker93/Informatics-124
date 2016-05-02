@@ -16,7 +16,7 @@
     $info = $stmt->fetch(PDO::FETCH_ASSOC);
     
     //returns city, state
-    echo $info['city'].",".$info['state'];
+    echo $info['city'].",".$info['state'].",";
 ?>
 <?php
     $conn = null;
