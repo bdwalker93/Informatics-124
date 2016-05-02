@@ -1,3 +1,6 @@
+body {
+    margin: 0 0 20px;
+}
 h1{
     color: black;
     margin-left: 25px;
@@ -35,13 +38,13 @@ div.outline {
     background: #fff
 }
 table {
- 
-    border: 1px red;
     margin-left: 25px;
-    width: 90%;
+    margin-right: 25px;
     font-size: 20px;
     text-align: left;
-    
+}
+.customerInfo {
+    width: 50%
 }
 hr {
     display: block;
@@ -62,11 +65,17 @@ hr {
 td.orderDescription{
     text-align: left;
     margin-top: 1px;
-    width: 2000px;
+    width: 1400px;
     
 }
 td.orderPrice{
+    float: right;
     text-align: right;
-    margin-left: 50px;
+    
 }
-
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}

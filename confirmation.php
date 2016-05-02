@@ -68,7 +68,7 @@
 
         <table>
             <tr>
-                <td>
+                <td class="customerInfo">
                     <?php
                         echo"The order was sent to : ". "<b><n style=color:orange;>" .$customerInfo['first_name'] . " " . $customerInfo['last_name']."</n></b>". "<br>";
                         //print"\r\n";
@@ -79,7 +79,7 @@
                 <td>
                     <?php
                         echo "Shipping Speed: "."<b>" . $customerInfo['shipping_type']. "</b>". "<br>";
-                       
+                        echo "Customer's Note: " .$customerInfo['notes'] . "<br>";
                     ?>
                 </td>
 
@@ -106,7 +106,7 @@
                 </td>
                 <td class="orderPrice">
                     <?php
-                        echo "<b>$" .$customerInfo['price']. "</b>";
+                        echo "<b>Total Cost: $" .$customerInfo['price']. "</b>";
                     ?>
                 </td>
             </tr>
@@ -116,7 +116,7 @@
         <br>
 
          <!--        This is the footer-->
-        <footer>
+        <footer class="footer">
             <ul>
             <li><Div style="font-size: 20px;
                      ">University of California, Irvine</div></li>
@@ -126,6 +126,6 @@
         </footer>
         <?php
         $conn = null;
-        ?>
+        ?>  
     </body>
 </html>
