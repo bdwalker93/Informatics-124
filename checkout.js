@@ -3,12 +3,12 @@ function order_validation(){
     var size = document.forms["order_form"]["size"].value;
     var quantity = document.forms["order_form"]["quantity"].value;
     
-     //checking the size
-    if(!parseInt(size)>0)
-    {
-        alert("Enter a positive number for size");
-        return false;
-    }
+//     //checking the size
+//    if(!parseInt(size)>0)
+//    {
+//        alert("Enter a positive number for size");
+//        return false;
+//    }
 
     //checking the quantity
     if(!parseInt(quantity)>0)
@@ -174,7 +174,10 @@ function updateEntireSummary(productID){
             document.getElementsByClassName("before_tax_label")[0].innerHTML = ar[3];         
             
             //updates the order total
-            document.getElementsByClassName("order_total")[0].innerHTML = ar[4];           
+            document.getElementsByClassName("order_total")[0].innerHTML = ar[4]; 
+            
+            //updates the hidden field
+            document.getElementById("hidden_order_total").value = ar[4];           
         }
     };
     

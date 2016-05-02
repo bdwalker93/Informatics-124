@@ -52,7 +52,7 @@
          
          <h1>Checkout</h1>
          
-         <form name="order_form" id="purchase_form" action="" onsubmit="return order_validation()" method="get">
+         <form name="order_form" id="purchase_form" action="updateOrderdb.php" onsubmit="return order_validation()" method="get">
             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
@@ -238,7 +238,7 @@
                                Notes
                            </td>
                            <td class="notes_column">
-                               <textarea  name="Notes" class="notes" form="purchase_form"></textarea>
+                               <textarea  name="notes" class="notes" form="purchase_form"></textarea>
                            </td>
                        </tr>
                    </table>
@@ -311,10 +311,16 @@
                 </table>
                
                 <hr>
+                
+                <!--For the product id-->
+                <input name="product_id" type="hidden" value="<?php echo $productIdNumber ?>">
+
+                <!--For the total cost-->
+                <input id="hidden_order_total" name="order_cost" type="hidden" value="-9999">
 
                 <!--submit button-->
                 <div class="submit_button_container">
-                    <input class="order_button" type="submit" value="Place Your Order" name="submit">
+                    <input class="order_button" type="submit" value="Place Your Order">
                 </div>
                     
             </div>  
