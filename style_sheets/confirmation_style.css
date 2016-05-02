@@ -1,3 +1,15 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body {
+    position: relative;
+    padding-bottom:  60px;
+}
 h1{
     color: black;
     margin-left: 25px;
@@ -35,13 +47,16 @@ div.outline {
     background: #fff
 }
 table {
- 
-    border: 1px red;
     margin-left: 25px;
-    width: 90%;
+    margin-right: 25px;
     font-size: 20px;
     text-align: left;
-    
+}
+.customerInfo {
+    max-width: 50%;
+}
+.shipping{
+    width: 50%
 }
 hr {
     display: block;
@@ -58,15 +73,21 @@ hr {
     margin-left: 10px;
     max-width: 300px;
     margin-right: 10px;
+    
 }
 td.orderDescription{
     text-align: left;
     margin-top: 1px;
-    width: 2000px;
-    
+    width: 50%;
 }
 td.orderPrice{
+    float: right;
     text-align: right;
-    margin-left: 50px;
+    padding: 10px;
+    
 }
-
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
