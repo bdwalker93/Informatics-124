@@ -18,3 +18,7 @@
     //returns city, state
     echo $info['tax_rate'].",".$info['tax_region'];
 ?>
+
+<?php
+    $conn = null;
+?>  

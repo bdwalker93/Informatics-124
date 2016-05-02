@@ -62,3 +62,6 @@
     exit;
        
     ?>
+<?php
+    $conn = null;
+?>  
