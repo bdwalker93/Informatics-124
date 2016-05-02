@@ -107,12 +107,10 @@ function getZipInfo(zipCode){
             var ar = result.split(",");
             
             //makes sure user didnt aalready type something in city field
-            if(document.forms["order_form"]["city"].value ==="")
-                document.forms["order_form"]["city"].value = ar[0];
+            document.forms["order_form"]["city"].value = ar[0];
             
             //makes sure user didnt aalready type something in state field
-            if(document.forms["order_form"]["state"].value ==="")
-                document.forms["order_form"]["state"].value = ar[1];
+            document.forms["order_form"]["state"].value = ar[1];
         }
     };
     
