@@ -29,7 +29,8 @@
     
     $total = ($infoProduct['price'] + ($infoProduct['price'] * $infoTax['tax_rate'])) + $shippingCost;
     $subTotal = ($infoProduct['price'] + $shippingCost);
+    $tax = ($infoProduct['price'] * $infoTax['tax_rate']);
     
-    //returns city, state
-    echo $infoProduct['price'].",".$shippingCost.",".sprintf("%.2f", $subTotal).",".sprintf("%.2f", $total);
+    //returns product price, shipping cost, tax amount, sub total, total cost
+    echo $infoProduct['price'].",".$shippingCost.",".sprintf("%.2f", $tax).",".sprintf("%.2f", $subTotal).",".sprintf("%.2f", $total);
 ?>

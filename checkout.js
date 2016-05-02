@@ -139,54 +139,16 @@ function getZipInfo(zipCode){
 }
 
 
-function updateShipping(type){
-    var shippingCost = "-1";
-    
-    if(type === "Overnight")
-        shippingCost = "20.00";
-    else if(type === "2-Day Expedited")
-        shippingCost = "10.00";
-    else if(type === "6-Day Ground")
-        shippingCost = "0.00";
-
-    //sets the order summary value
-    document.getElementsByClassName("shipping_label")[0].innerHTML = shippingCost;
-    
-    updateBeforeTax();  
-}
-
-function updateTax(zip){
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function()
-    {
-        //4== finished and 200 means good
-        if(xhr.readyState === 4 && xhr.status === 200)
-        {
-            //gets the response
-            var result = xhr.responseText;
-           
-           //splits the response to city and state
-            var ar = result.split(",");
-            
-            //updates teh order summary
-            document.getElementsByClassName("tax_label")[0].innerHTML = ar[0];                   }
-    };
-    
-    xhr.open("GET","getTaxRate.php?zipCode=" + zip, true);
-    xhr.send();
-}
-
-function updateOrderTotal(zipCode, productID){
-        
-    var shippingCost = "-1";
-    
-    //checks the shipping radio buttons
+function updateEntireSummary(productID){
+        //checks the shipping radio buttons
     if(document.getElementById('shiping1').checked)
         shippingCost = "20.00";
     else if(document.getElementById('shiping2').checked)
         shippingCost = "10.00";
     else if(document.getElementById('shiping3').checked)
         shippingCost = "0.00";
+    
+    var zipCode = document.getElementById('zip_box').value;
     
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function()
@@ -200,8 +162,19 @@ function updateOrderTotal(zipCode, productID){
             //splits the response to itemcost, shipping, subtotal, order total
             var ar = result.split(",");
             
+            //maybe add the update item price for the future
+            
+            //updates shipping (not really necessary to do it this way)
+            document.getElementsByClassName("shipping_label")[0].innerHTML = ar[1];
+    
+            //updates the estimated tax
+            document.getElementsByClassName("tax_label")[0].innerHTML = ar[2]; 
+            
+            //updates the before tax
+            document.getElementsByClassName("before_tax_label")[0].innerHTML = ar[3];         
+            
             //updates the order total
-            document.getElementsByClassName("order_total")[0].innerHTML = ar[3];                   
+            document.getElementsByClassName("order_total")[0].innerHTML = ar[4];           
         }
     };
     
@@ -209,25 +182,7 @@ function updateOrderTotal(zipCode, productID){
     xhr.send();
 }
 
-function updateBeforeTax(){
-    
-    var itemCost = document.getElementsByClassName("item_price_label");
-    var shippingCost = "-1";
-    
-    //checks the shipping radio buttons
-    if(document.getElementById('shiping1').checked)
-        shippingCost = "20.00";
-    else if(document.getElementById('shiping2').checked)
-        shippingCost = "10.00";
-    else if(document.getElementById('shiping3').checked)
-        shippingCost = "0.00";
-    
-    var subTotal = Number(itemCost) + Number(shippingCost);
-            console.log(itemCost + " and " + shippingCost);
-            
-    //updates the total before tax
-    document.getElementsByClassName("before_tax_label")[0].innerHTML = subTotal;
-}
+
 //code to verify credit card numbers
 function detectCardType(number) {
     
