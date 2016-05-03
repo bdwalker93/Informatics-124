@@ -20,6 +20,11 @@
                     font-weight: bold;
             }
             
+            .overall_table{
+                  /*border: 1px solid black;*/
+
+            }
+            
             /*This is all of the product/personal information*/
             .left_container{
                 /*border: 1px solid black;*/
@@ -73,6 +78,7 @@
                 font-size: 20px;
                 padding: 3px;
                 text-align: center;
+                
 
             }
             
@@ -101,7 +107,9 @@
                 border: 3px solid black;
                 float: right; 
                 margin-right: 450px;
-                margin-top: 50px;
+                margin-left: 150px;
+                margin-bottom: 350px;
+
                 height: 390px;
                 width: 370px;
                 background-color: #f2f2f2;

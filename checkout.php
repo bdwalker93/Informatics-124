@@ -53,7 +53,10 @@
          <h1>Checkout</h1>
          
          <form name="order_form" id="purchase_form" action="updateOrderdb.php" onsubmit="return order_validation()" method="get">
-            <!--Handles all of the contents on the left side of the page-->
+<table>
+ <tr>
+     <td class="overall_table">        
+             <!--Handles all of the contents on the left side of the page-->
            <div class="left_container" >
 
                <!--This is for product details-->
@@ -245,7 +248,8 @@
                </div>
 
            </div>
-
+</td>  
+<td class="overall_table">
             <!--This is the right containter-->
            <div class="right_container" >  
                <!--Order summary box-->
@@ -327,6 +331,11 @@
                 </div>
                     
             </div>  
+            
+            
+</td>
+</tr>
+</table>
         </form>
         
         
